@@ -1,0 +1,30 @@
+{
+  "name": "goodgrind",
+  "version": "1.0.0",
+  "description": "App to identify work wellness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/masteremmy/GoodGrind.git"
+  },
+  "keywords": [
+    "health",
+    "work",
+    "job"
+  ],
+  "author": "Emmy and Sofia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/masteremmy/GoodGrind/issues"
+  },
+  "homepage": "https://github.com/masteremmy/GoodGrind#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.1",
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.2"
+  }
+}
