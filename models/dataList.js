@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Data = sequelize.define("Data", {
+  var DataList = sequelize.define("DataList", {
     id: {
       type: DataTypes.INT,
       allowNull: false,
@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       defaultValue: Sequelize.NOW
     }, 
-    feeling: {
+    reason: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: 'none'
@@ -26,14 +26,12 @@ module.exports = function(sequelize, DataTypes) {
   return Data;
 };
 
-
-// CREATE TABLE `data` (
+// CREATE TABLE `dataList` (
 //   `id` Int AUTO_INCREMENT NOT NULL,
-//   `userId` INT,
+//   `userid` INT,
 //   `date` DATETIME NOT NULL,
-//   `feeling` boolean not null default 0,
-//    FOREIGN KEY (userid) REFERENCES user(userid),
-
+//   `reason` VARCHAR(255) NOT NULL,
+//   FOREIGN KEY (userid) REFERENCES user(userid),
+  
 //   PRIMARY KEY ( `id` ) 
-
 // );
