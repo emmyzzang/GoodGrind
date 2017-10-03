@@ -5,7 +5,7 @@ USE goodgrind;
 
 CREATE TABLE `data` (
   `id` Int AUTO_INCREMENT NOT NULL,
-  `userId` INT,
+  `userid` INT,
   `date` DATETIME NOT NULL,
   `feeling` boolean not null default 0,
    FOREIGN KEY (userid) REFERENCES user(id),
