@@ -1,29 +1,28 @@
 module.exports = function(sequelize, DataTypes) {
   var DataList = sequelize.define("DataList", {
     id: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
+      primaryKey: true,
       allowNull: false,
     },
     userId: {
-      type: DataTypes.INT,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
-    date: {
-      type: Sequelize.DATE,
-      allowNull: false,
-      defaultValue: Sequelize.NOW
-    }, 
+    // date: {
+    //   type: Sequelize.DATE,
+    //   allowNull: false,
+    //   defaultValue: Sequelize.NOW
+    // }, 
     reason: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: 'none'
+      defaultValue: false
     }
-
-    //FIGURE OUT HOW TO SET FOREIGN KEY WITH SEQUELIZE
-  }
-
   });
-  return Data;
+
+
+  return DataList;
 };
 
 // CREATE TABLE `dataList` (
