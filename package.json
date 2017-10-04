@@ -6,10 +6,8 @@
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-router-dom": "^4.2.2",
-    "react-scripts": "1.0.14"
+    "mysql2": "^1.4.2",
+    "sequelize": "^4.13.2"
   },
   "scripts": {
     "server": "node server.js",

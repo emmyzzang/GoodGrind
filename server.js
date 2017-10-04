@@ -1,10 +1,9 @@
 // *** Dependencies
 // =============================================================
-const reactRouter = require("react-router-dom");
 const express = require("express");
 const bodyParser = require("body-parser");
 const axios = require("axios");
-const routes = require("./routes");
+// const routes = require("./routes");
 
 // Sets up the Express App
 // =============================================================
@@ -25,7 +24,9 @@ app.use(express.static("client/build"));
 
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+// require("./routes/index.js")(app);
+const routes = require('./routes/index.js');
+app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
