@@ -24,7 +24,6 @@ app.use(express.static("client/build"));
 
 // Routes
 // =============================================================
-// require("./routes/index.js")(app);
 const routes = require('./routes/index.js');
 app.use(routes);
 
