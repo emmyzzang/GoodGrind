@@ -1,26 +1,33 @@
 USE goodgrind;
 
--- user sequelize model was copy-pasted from passport.  We should use the User Id
--- from that. I will work on writing a mySql schema for it as well. 
+CREATE TABLE `user` (
+  `userid` Int( 11 ) AUTO_INCREMENT NOT NULL,
+  `firstname`VARCHAR( 255) NOT NULL,
+  `lastname`VARCHAR( 255) NOT NULL,
+  `username` VARCHAR( 255) NOT NULL,
+  `email` VARCHAR( 255) NOT NULL,
+  `password`VARCHAR( 255) NOT NULL,
+  `last_login`DATETIME NOT NULL,
+  `status`DATETIME NOT NULL,
 
-CREATE TABLE `data` (
-  `id` Int AUTO_INCREMENT NOT NULL,
-  `userid` INT,
+  PRIMARY KEY ( `userid` )
+);
+
+CREATE TABLE `Feelings` (
+  `feelingId` Int AUTO_INCREMENT NOT NULL,
   `date` DATETIME NOT NULL,
   `feeling` boolean not null default 0,
-   FOREIGN KEY (userid) REFERENCES user(id),
+   FOREIGN KEY (feelingId) REFERENCES user(userid),
 
-  PRIMARY KEY ( `id` ) 
-
+  PRIMARY KEY ( `feelingId` ) 
 );
   
-CREATE TABLE `dataList` (
-  `id` Int AUTO_INCREMENT NOT NULL,
-  `userid` INT,
+CREATE TABLE `Reasons` (
+  `reasonId` Int AUTO_INCREMENT NOT NULL,
   `date` DATETIME NOT NULL,
-  `reason` VARCHAR(255) NOT NULL,
-  FOREIGN KEY (userid) REFERENCES user(userid),
+  `reasonList` VARCHAR(255) NOT NULL,
+  FOREIGN KEY (reasonId) REFERENCES Feelings(feelingId),
   
-  PRIMARY KEY ( `id` ) 
+
+  PRIMARY KEY ( `reasonId` ) 
 );
-  

@@ -1,3 +1,5 @@
+var Feelings = require("./feelings.js");
+
 module.exports = function(sequelize, Sequelize) {
 
 	var User = sequelize.define('user', {
@@ -34,5 +36,7 @@ module.exports = function(sequelize, Sequelize) {
 	});
 
 	return User;
+
+	User.hasMany(Feelings,{as: 'feeling', foreignKey: 'id'})
 
 }
