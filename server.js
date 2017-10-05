@@ -24,8 +24,8 @@ app.use(express.static("client/build"));
 
 // Routes
 // =============================================================
-const routes = require('./routes/index.js');
-app.use(routes);
+require('./routes/api-routes.js')(app);
+
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
