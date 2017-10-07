@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
 
 class Navbar extends Component {
   state = {
@@ -10,10 +12,11 @@ class Navbar extends Component {
 render() {
   return (
     <div className='td-form'>
-      <a href="test">link1</a>
-      <a href="test">link2</a>
-      <a href="test">link3</a>
-      <a href="test">link4</a>
+      <Link to={"/dashboard"}>Dashboard</Link><br />
+      <Link to={"/update"}>Update</Link><br />
+      <Link to={"/goals"}>Goals</Link><br />
+      <Link to={"/stats"}>Stats</Link><br />
+      <Link to={"/signout"}>SignOut</Link><br />
     </div>
       );
     }

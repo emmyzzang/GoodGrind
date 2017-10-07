@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar/Navbar.js'
-
 
 class Update extends Component {
   state = {
@@ -11,9 +9,6 @@ class Update extends Component {
 
 render() {
   return (
-
-    <Navbar></Navbar>
-
 
     <div className='td-form'>
       Update Page

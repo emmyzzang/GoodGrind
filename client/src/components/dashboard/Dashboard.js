@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar/Navbar.js'
 
 // MEGAMAN
 class Dashboard extends Component {
@@ -13,7 +12,6 @@ render() {
 
     // Create a form based on a column
     <div className='td-form'>
-    <Navbar></Navbar>
     hello
 
         <input
