@@ -17,16 +17,16 @@ CREATE TABLE `Feelings` (
   `feelingId` Int AUTO_INCREMENT NOT NULL,
   `date` DATETIME NOT NULL,
   `feeling` boolean not null default 0,
-   FOREIGN KEY (userid) REFERENCES feelingId(userid),
+   FOREIGN KEY (feelingId) REFERENCES user(userid),
 
-  PRIMARY KEY ( `FeelingId` ) 
+  PRIMARY KEY ( `feelingId` ) 
 );
   
 CREATE TABLE `Reasons` (
   `reasonId` Int AUTO_INCREMENT NOT NULL,
   `date` DATETIME NOT NULL,
   `reasonList` VARCHAR(255) NOT NULL,
-  FOREIGN KEY (feelingId) REFERENCES reasonId(feelingId),
+  FOREIGN KEY (reasonId) REFERENCES Feelings(feelingId),
   
 
   PRIMARY KEY ( `reasonId` ) 
