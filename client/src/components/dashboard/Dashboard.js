@@ -16,7 +16,6 @@ render() {
   return (
     // Create a form based on a column
     <div className='td-form'>
-    <Navbar></Navbar>
       hello
 
           <input

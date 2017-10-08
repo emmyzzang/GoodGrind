@@ -9,7 +9,6 @@ import Goals from './components/goals/Goals.js';
 import Stats from './components/stats/Stats.js';
 import Update from './components/update/Update.js';
 import Dashboard from './components/dashboard/Dashboard.js';
->>>>>>> master
 
 // Stating 'extends Component' has nothing to do with the children
 // It is extending the capability of the class being declared
@@ -17,23 +16,6 @@ import Dashboard from './components/dashboard/Dashboard.js';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-{// FOR DEBUGGING PURPOSES, USE THIS SECTION AND CHANGE THE PAGE NAME TO
-// WHATEVER I WANT TO RENDER TO TEST -- ALSO IMPORT IT!!! :D
-}
-      <Dashboard />
-
-
-      {
-        // <header className="App-header">
-        //   <img src={logo} className="App-logo" alt="logo" />
-        //   <h1 className="App-title">Welcome to React</h1>
-        // </header>
-        // <p className="App-intro">
-        //   To get started, edit <code>src/App.js</code> and save to reload.
-        // </p>
-      }
-      </div>
       <Router>
         <div>
           <Navbar />
