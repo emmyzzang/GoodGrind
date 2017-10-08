@@ -12,17 +12,23 @@ module.exports = function(app) {
     // findAll returns all entries for a table when used with no options
     console.log('GET happened!???');
 
-    db.Data.findAll({}).then(function(data) {
-      // We have access to the todos as an argument inside of the callback function
-      res.json(data);
-    });
+    // db.Data.findAll({}).then(function(data) {
+    //   // We have access to the todos as an argument inside of the callback function
+    //   res.json(data);
+    // });
   });
 
-
-  app.post('/api/data', function (req, res) {
+  app.post('/feelings', function (req, res) {
     console.log('POST just happened');
-    res.json('post just happened - this is where results of db will be');
-  });
+
+    db.feelings.create({
+      date: req.body.date,
+      feelins: req.body.feelings
+    }).then(function(dbfeelings) {
+      // We have access to the new todo as an argument inside of the callback function
+      res.json(dbfeelings);
+    });
+ });
 
   app.put('/api/data', function(req, res) {
     console.log('PUT just happened');
