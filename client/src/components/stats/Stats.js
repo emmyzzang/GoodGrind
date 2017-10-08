@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import Navbar from '../navbar/Navbar.js'
-
 
 class Stats extends Component {
   state = {
@@ -11,9 +9,6 @@ class Stats extends Component {
 
 render() {
   return (
-
-    <Navbar></Navbar>
-
     <div className='td-form'>
       Stats Page
     </div>

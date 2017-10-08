@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 // MEGAMAN
 class Login extends Component {
   state = {
     userName: '',
     password: '',
-    ofMatters: 'initialization value'
+    ofMatters: ''
   }
 
   thisIsATest = myInput => {
@@ -16,31 +17,15 @@ render() {
     // Create a form based on a column
     <div className='td-form'>
 
-    Login
+    <form id="signin" name="signin" method="post" action="signin">
+              <label for="email">Email Address</label>
+              <input class="text" name="email" type="text" />
+              <label for="password">Password</label>
+              <input name="password" type="password" />
+              <input class="btn signInBtn" type="submit" value="Sign In" />
+              <p class="message">Not Registered? <a class="createLink" href="">Create an Account</a></p>
+            </form>
 
-        <input
-          name='userName'
-          value={this.state.userName}
-          onChange={(event) => {
-            this.setState({
-              userName: event.target.userName
-            })
-          }} />
-
-          <input
-            name='password'
-            value={this.state.password}
-            onChange={(event) => {
-              this.setState({
-                password: event.target.password
-              })
-            }} />
-
-      <button onClick={() => {
-        this.thisIsATest('CAN I GET A WOOT WOOT?!?!');
-      }}>
-          Submit -
-        </button>
 
         {this.state.ofMatters}
 

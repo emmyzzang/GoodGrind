@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from '../navbar/Navbar.js'
 import updateFeelings from '../calls/updateFeelings.js'
 
+
 // MEGAMAN
 class Dashboard extends Component {
   state = {
@@ -43,6 +44,7 @@ render() {
             Submit
           </button>
       </div>
+
       );
     }
   }
