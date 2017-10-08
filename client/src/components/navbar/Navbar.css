@@ -1,9 +1,9 @@
 ul {
   list-style-type: none;
-  margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color: #fff;
+  margin-left: 33%;
 }
 
 li {
@@ -12,7 +12,7 @@ li {
 
 li a {
   display: block;
-  color: white;
+  color: grey;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -20,4 +20,35 @@ li a {
 
 li a:hover {
   background-color: #111;
+}
+
+h1 {
+  color: #ddd;
+  font-family: raleway;
+
+}
+
+.good {
+  float: left;
+  margin-top: 2%;
+  margin-left: 40%;
+  display: block;
+  font-size: 50px;
+  font-weight: bold;
+  color: #80cbc4;
+  font-family: raleway;
+}
+
+.grind {
+  float: left;
+  margin-top: 2%;
+  font-size: 50px;
+  font-weight: bold;
+  color: lightgrey;
+  font-family: raleway;
+
+}
+
+hr {
+  width: 50%;
 }
