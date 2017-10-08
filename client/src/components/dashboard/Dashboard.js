@@ -1,37 +1,48 @@
 import React, { Component } from 'react';
 import Navbar from '../navbar/Navbar.js'
+import updateFeelings from '../calls/updateFeelings.js'
 
 // MEGAMAN
 class Dashboard extends Component {
   state = {
-    newTodo: ''
+    date: '',
+    feeling: '',
   }
 
 render() {
+  const { date, feeling } = this.state
+
   return (
-
-
     // Create a form based on a column
     <div className='td-form'>
     <Navbar></Navbar>
-    hello
+      hello
 
-        <input
-          name='firstName'
-          value={this.state.firstName}
-          onChange={(event) => {
-            this.setState({
-              firstName: event.target.firstName
-            })
-          }} />
+          <input
+            name='date'
+            value= {date}
+            onChange={(event) => {
+              this.setState({
+                date: event.target.value
+              })
+            }} />
 
-      <button onClick={() => {
-        this.props.handleSubmit(this.state.firstName);
-      }}>
-          Submit
-        </button>
+          <input
+            name='feeling'
+            value={feeling}
+            onChange={(event) => {
+              this.setState({
+                feeling: event.target.value
+              })
+            }} />
 
-  </div>
+        <button onClick={(event) => {
+          event.preventDefault();
+          updateFeelings(this.state.date, this.state.feeling);
+        }}>
+            Submit
+          </button>
+      </div>
       );
     }
   }
