@@ -2,13 +2,11 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
-
 // Routes
 // =============================================================
-module.exports = function(app) {
 
   // GET route for getting all of the todos
-  app.get("/api/data", function(req, res) {
+  router.get("/api/data", function(req, res) {
     // findAll returns all entries for a table when used with no options
     console.log('GET happened!???');
 
@@ -18,7 +16,7 @@ module.exports = function(app) {
     // });
   });
 
-  app.post('/feelings', function (req, res) {
+  router.post('/api/feelings', function (req, res, next) {
     console.log('POST just happened');
 
     db.feelings.create({
@@ -30,14 +28,14 @@ module.exports = function(app) {
     });
  });
 
-  app.put('/api/data', function(req, res) {
+  router.put('/api/data', function(req, res) {
     console.log('PUT just happened');
     res.json('put just happened - this is where results of the db will be');
   });
 
-  app.delete('/api/data', function(req, res) {
+  router.delete('/api/data', function(req, res) {
     console.log('DELETE just happened');
     res.json('delete just happened - this can return a boolean of successful delete or not');
   });
 
-}
+module.exports = router
