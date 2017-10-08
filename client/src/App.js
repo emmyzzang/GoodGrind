@@ -10,6 +10,9 @@ import Stats from './components/stats/Stats.js';
 import Update from './components/update/Update.js';
 import Dashboard from './components/dashboard/Dashboard.js';
 
+// Stating 'extends Component' has nothing to do with the children
+// It is extending the capability of the class being declared
+// class App is declared with the extended ability of component
 class App extends Component {
   render() {
     return (
@@ -30,5 +33,9 @@ class App extends Component {
     );
   }
 }
+
+// So there's two things - states and props
+// states is used internally at that specific class
+// props in-a-nutshell is externally controlled by the parent
 
 export default App;

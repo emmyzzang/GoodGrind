@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-
+import NavbarStyle from './Navbar.css';
+import FontAwesome from 'react-fontawesome';
 
 class Navbar extends Component {
   state = {
@@ -11,12 +12,15 @@ class Navbar extends Component {
 
 render() {
   return (
-    <div className='td-form'>
-      <Link to={"/dashboard"}>Dashboard</Link><br />
-      <Link to={"/update"}>Update</Link><br />
-      <Link to={"/goals"}>Goals</Link><br />
-      <Link to={"/stats"}>Stats</Link><br />
-      <Link to={"/signout"}>SignOut</Link><br />
+    <div className='td-form {NavbarStyle}'>
+    <h1> Good Grind Placeholder Logo </h1>
+    <ul>
+      <li><Link to={"/dashboard"}><FontAwesome name='tachometer' />&nbsp;Dashboard</Link></li>
+      <li><Link to={"/update"}><FontAwesome name='pencil' />&nbsp;Update</Link></li>
+      <li><Link to={"/goals"}><FontAwesome name='rocket' />&nbsp;Goals</Link></li>
+      <li><Link to={"/stats"}><FontAwesome name='line-chart' />&nbsp;Stats</Link></li>
+      <li><Link to={"/signout"}><FontAwesome name='sign-out' />&nbsp;Log Out</Link></li>
+    </ul>
     </div>
       );
     }
