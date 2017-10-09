@@ -14,7 +14,7 @@ function tokenForUser(user) {
 }
 
 function generateHash(password) {
-  return.bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
+  return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 }
 
 exports.signin = function(req, res, next) {
@@ -36,7 +36,7 @@ exports.signup = function(req, res, next) {
   db.user.findOne({ where: {email: email } }).then(existingUser => {
     // If a user with email does exist, raise Error
     if (existingUser) {
-      return.res.status(422).send({ error: 'Email is in use'});
+      return res.status(422).send({ error: 'Email is in use'});
     }
 
     db.user.create({
