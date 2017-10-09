@@ -4,11 +4,14 @@
   "private": true,
   "dependencies": {
     "axios": "^0.16.2",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "express": "^4.16.1",
+    "jwt-simple": "^0.5.1",
     "mysql2": "^1.4.2",
-    "react-fontawesome": "^1.6.1",
-    "react-router-dom": "^4.2.2",
+    "passport": "^0.4.0",
+    "passport-jwt": "^3.0.0",
+    "passport-local": "^1.0.0",
     "sequelize": "^4.13.2"
   },
   "scripts": {
