@@ -6,27 +6,16 @@ import updateFeelings from '../calls/updateFeelings.js'
 // MEGAMAN
 class Dashboard extends Component {
   state = {
-    date: '',
     feeling: '',
   }
 
 render() {
-  const { date, feeling } = this.state
+  const { feeling } = this.state
 
   return (
     // Create a form based on a column
     <div className='td-form'>
       hello
-
-          <input
-            name='date'
-            value= {date}
-            onChange={(event) => {
-              this.setState({
-                date: event.target.value
-              })
-            }} />
-
           <input
             name='feeling'
             value={feeling}
@@ -36,12 +25,10 @@ render() {
               })
             }} />
 
-        <button onClick={(event) => {
-          event.preventDefault();
-          updateFeelings(this.state.date, this.state.feeling);
-        }}>
+        <button onClick={(event) => {event.preventDefault(); updateFeelings(this.state.feeling);}}>
             Submit
-          </button>
+        </button>
+      
       </div>
 
       );

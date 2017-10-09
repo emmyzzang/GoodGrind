@@ -7,15 +7,15 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    date: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW
-    }, 
     feeling: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
-    }
+    },
+    createdAt: {
+      type: DataTypes.DATE,
+      field: 'created_at',
+    },
   });
 
   return Feelings;

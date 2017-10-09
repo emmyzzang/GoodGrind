@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import API from "../../util/axiosApi.js";
 
 
-  const updateFeelings = (date, feeling) => {
-    console.log(date)
+  const updateFeelings = (feeling) => {
     console.log(feeling)
-    if (date && feeling) {
+    if (feeling) {
       API.saveFeeling({
-        date: date,
         feeling: feeling
       })
         .then(res => this.loadFeelings())

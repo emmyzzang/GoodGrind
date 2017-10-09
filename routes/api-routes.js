@@ -20,8 +20,7 @@ var db = require("../models");
     console.log('POST just happened');
 
     db.feelings.create({
-      date: req.body.date,
-      feelins: req.body.feelings
+      feelings: req.body.feelings
     }).then(function(dbfeelings) {
       // We have access to the new todo as an argument inside of the callback function
       res.json(dbfeelings);

@@ -13,7 +13,7 @@ class Navbar extends Component {
 render() {
   return (
     <div className='td-form {NavbarStyle}'>
-        <div className="good">GOOD</div>&nbsp;<div class="grind">GRIND</div><br /><br /><br />
+        <div className="good">GOOD</div>&nbsp;<div className="grind">GRIND</div><br /><br /><br />
         <hr />
     <ul>
       <li><Link to={"/dashboard"}><FontAwesome name='tachometer' />&nbsp;Dashboard</Link></li>
