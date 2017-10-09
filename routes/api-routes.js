@@ -18,14 +18,20 @@ var db = require("../models");
 
   router.post('/api/feelings', function (req, res, next) {
     console.log('POST just happened');
-
     db.feelings.create({
       feelings: req.body.feelings
     }).then(function(dbfeelings) {
-      // We have access to the new todo as an argument inside of the callback function
       res.json(dbfeelings);
     });
  });
+
+ router.post('/api/reasons', function (req, res, next) {
+   db.reasons.create({
+     reasonList: req.body.reasons
+   }).then(function(dbreasons) {
+     res.json(dbreasons);
+   });
+});
 
   router.put('/api/data', function(req, res) {
     console.log('PUT just happened');

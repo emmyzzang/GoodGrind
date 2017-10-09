@@ -2,20 +2,14 @@ var Feelings = require("./feelings.js");
 
 module.exports = function(sequelize, DataTypes) {
   var Reasons = sequelize.define("reasons", {
-    reasonId: { 
+    reasonId: {
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    date: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW
-    }, 
     reasonList: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false
+      type: DataTypes.STRING,
+      required: true
     }
   });
 
