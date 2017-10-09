@@ -32,13 +32,15 @@ exports.signup = function(req, res, next) {
     return res.status(422).send({ error: 'You must provide email and password'});
   }
 
-  // TODO - Should login be used with email or username?
+  // TODO - Should login be used with email or username? (Did both for now - can delete one)
+  // This is finding if the email already exists
   db.user.findOne({ where: {email: email } }).then(existingUser => {
     // If a user with email does exist, raise Error
     if (existingUser) {
       return res.status(422).send({ error: 'Email is in use'});
     }
-
+    // If a user with email does NOT exist, create and save user record
+    // db.user.create Saves the record to the DB.
     db.user.create({
       firstname: req.body.firstname,
       lastname: req.body.lastname,
@@ -47,6 +49,9 @@ exports.signup = function(req, res, next) {
       password: generateHash(req.body.password)
     }).then(function(user) {
       console.log('User create successful!');
+      // Response to Request indicating the user was created
+      // After user successfully creates an account - it is a valid session
+      // So we will need to generate a token to allow access to the webpage
       res.json({ token: tokenForUser(user)});
     });
   });

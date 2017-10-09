@@ -1,6 +1,6 @@
-// passport is used to help authenticate a user
-// configuration // logic to help setup passport-jwt
-// passport helps us authenticate a user when they attempt to visit a route that requires authentication
+// Passport is used to help authenticate a user
+// Configuration // logic to help setup passport-jwt
+// Passport helps us authenticate a user when they attempt to visit a route that requires authentication
 const passport = require('passport');
 const db = require('../models');
 const config = require('../config/config.json')[process.env.NODE_ENV || 'development'];
@@ -8,10 +8,10 @@ const bcrypt = require('bcrypt-nodejs');
 
 
 const JwtStrategy = require('passport-jwt').Strategy;
-// passport is an ecosystem formed by strategies
+// Passport is an ecosystem formed by strategies
 // Passport Strategy #1 -- Verify user with a jwt (jwtLogin)
 // Passport Strategy #2 -- Verify user with username and password (localLogin)
-// see the website for more details
+// See the website for more details
 
 const ExtractJwt = require('passport-jwt').ExtractJwt;
 
@@ -54,8 +54,8 @@ const jwtOptions = {
 
 // Create JWT Strategy
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
-  // payload is the decoded jwt token - assigned a sub (subject) and iat (issued at time)
-  // done is the callback function used to successfully authenticate the user (see below)
+  // Payload is the decoded jwt token - assigned a sub (subject) and iat (issued at time)
+  // One is the callback function used to successfully authenticate the user (see below)
 
   // See if the user ID in the payload exists in our database
   // If it does, call 'done' with that user
