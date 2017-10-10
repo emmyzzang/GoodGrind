@@ -3,36 +3,37 @@ var Feelings = require("./feelings.js");
 module.exports = function(sequelize, Sequelize) {
 
 	var User = sequelize.define('user', {
-		id: { 
+		id: {
 			autoIncrement: true,
 			primaryKey: true,
 			type: Sequelize.INTEGER
 		},
-		firstname: { 
+		firstname: {
 			type: Sequelize.STRING,notEmpty: true
 		},
-		lastname: { 
+		lastname: {
 			type: Sequelize.STRING,notEmpty: true
 		},
 		username: {
 			type: Sequelize.STRING,notEmpty: true
 		},
-		email: { 
-			type:Sequelize.STRING, 
-			validate: {isEmail:true} 
+		email: {
+			type:Sequelize.STRING,
+			unique: true,
+			lowercase: true,
+			validate: {isEmail:true}
 		},
 		password : {
 			type: Sequelize.STRING,
-			allowNull: false 
+			allowNull: false
 		},
 		last_login: {
 			type: Sequelize.DATE
 		},
-	    status: {
+	  status: {
 	    	type: Sequelize.ENUM('active','inactive'),
-	    	defaultValue:'active' 
+	    	defaultValue:'active'
 	    }
-
 	});
 
 	return User;

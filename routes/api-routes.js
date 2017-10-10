@@ -2,8 +2,27 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+// AUTHENTICATION ////////////////////////////////////////////
+const Authentication = require('../controllers/authentication');
+const passportService = require('../services/passport');
+const passport = require('passport');
+const requireAuth = passport.authenticate('jwt', { session: false });
+const requireSignin = passport.authenticate('local', { session: false });
+//////////////////////////////////////////////////////////////
+
 // Routes
 // =============================================================
+
+  // AUTHENTICATION ////////////////////////////////////////////
+  router.get('/test', requireAuth, function(req, res) {
+    res.send({ hi: 'You are authenticated!!! :)'});
+  });
+
+  router.post('/signin', requireSignin, Authentication.signin);
+  router.post('/signup', Authentication.signup);
+  //////////////////////////////////////////////////////////////
+
+
 
   // GET route for getting all of the todos
   router.get('/api/feelings', function(req, res) {
