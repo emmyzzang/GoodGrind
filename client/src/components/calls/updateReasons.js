@@ -4,13 +4,13 @@ import API from "../../util/axiosApi.js";
 
   const updateReasons = (reasons) => {
     console.log(reasons)
-    if (reasons) {
+    reasons.forEach( reason => {
       API.saveReason({
-        reasonList: reasons
+        "reasonList": reason
       })
       .then(res => console.log(res))
       .catch(err => console.log(err));
-    }
+    })
   };
 
 

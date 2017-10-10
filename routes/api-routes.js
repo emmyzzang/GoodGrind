@@ -19,7 +19,7 @@ var db = require("../models");
   router.post('/api/feelings', function (req, res, next) {
     console.log('POST just happened');
     db.feelings.create({
-      feelings: req.body.feelings
+      feelings: req.body.feeling
     }).then(function(dbfeelings) {
       res.json(dbfeelings);
     });
@@ -27,7 +27,7 @@ var db = require("../models");
 
  router.post('/api/reasons', function (req, res, next) {
    db.reasons.create({
-     reasonList: req.body.reasons
+     reasonList: req.body.reasonList
    }).then(function(dbreasons) {
      res.json(dbreasons);
    });
