@@ -5,10 +5,13 @@ export default {
   // getBooks: function() {
   //   return axios.get("/api/books");
   // },
-  // // Gets the book with the given id
-  // getBook: function(id) {
-  //   return axios.get("/api/books/" + id);
-  // },
+  // Gets the book with the given id
+  getFeelings: function() {
+    return axios.get("/api/feelings/");
+  },
+  getReasons: function(reasonList) {
+    return axios.get("/api/reasons/" + reasonList);
+  },
   // // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);

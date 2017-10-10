@@ -6,7 +6,7 @@ import API from "../../util/axiosApi.js";
     console.log(reasons)
     reasons.forEach( reason => {
       API.saveReason({
-        "reasonList": reason
+        reasonList: reason
       })
       .then(res => console.log(res))
       .catch(err => console.log(err));
