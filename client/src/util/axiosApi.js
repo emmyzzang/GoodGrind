@@ -9,8 +9,8 @@ export default {
   getFeelings: function() {
     return axios.get("/api/feelings/");
   },
-  getReasons: function(reasonList) {
-    return axios.get("/api/reasons/" + reasonList);
+  getReasons: function() {
+    return axios.get("/api/reasons/");
   },
   // // Deletes the book with the given id
   // deleteBook: function(id) {

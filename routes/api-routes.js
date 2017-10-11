@@ -33,6 +33,14 @@ const requireSignin = passport.authenticate('local', { session: false });
     });
   });
 
+  router.get('/api/reasons', function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    console.log('GET happened!???');
+    db.reasons.findAll({}).then(function(data) {
+      res.json(data);
+    });
+  });
+
   router.post('/api/feelings', function (req, res, next) {
     console.log('POST just happened');
     db.feelings.create({

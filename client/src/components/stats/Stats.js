@@ -1,41 +1,71 @@
 import React, { Component } from 'react';
-import getFeelings from '../calls/createStatsFeelings.js'
 import API from "../../util/axiosApi.js";
 
 
 
-class Stats extends Component {
+class Stats extends React.Component {
   state = {
-    feelings:''
+    feelings:[],
+    reasons: []
   };
 
   componentDidMount() {
     this.getFeelings();
+    this.getReasons()
   }
 
   getFeelings = () => {
       API.getFeelings()
+
         .then( res =>
           {
-            console.log(res)
-            this.setState({ feelings: res.data.feeling })
+            let dataArray = []
+
             for(var i = 0; i < res.data.length; i++) {
-              console.log(res.data[i].feeling)
+              dataArray.push(String(res.data[i].reasonList))
             }
 
+            this.setState({ feelings: res.data[0].feeling }, function () {console.log(this.state.feelings)})
           }
       )
         .catch(err => console.log(err));
       };
 
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.feelings !== nextState.feelings;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.reasons !== nextState.reasons;
+  }
+
+  getReasons = () => {
+    API.getReasons()
+      .then( res =>
+      {
+        let dataArray = []
+
+        for(var i = 0; i < res.data.length; i++) {
+          dataArray.push(res.data[i].reasonList)
+        }
+
+        this.setState({
+          reasons: dataArray }, function() {console.log(this.state.reasons)})
+        })
+      }
+
   render() {
     return (
-      <div className='td-form'>
-        {this.state.feelings}
+      <div className='statsDiv'>
+        <h1> {String(this.state.feelings)} </h1>
+        <h1> {this.state.reasons} </h1>
+        <h1> state is not rendering ... </h1>
       </div>
-      );
-    }
+    )
   }
+}
+
 
 export default Stats;
 
@@ -44,8 +74,14 @@ export default Stats;
 
 
 
-
-
+// renderList = () => {
+//   // for(var i = 0; i < res.data.length; i++)
+//   let list = document.getElementById("statsDiv");
+//   list.appendChild(<li> this.state.feelings </li>)
+//
+//   console.log(this.state.feelings)
+//   // }
+// }
 
 
 // import React, { Component } from "react";
