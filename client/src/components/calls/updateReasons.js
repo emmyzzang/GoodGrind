@@ -3,7 +3,6 @@ import API from "../../util/axiosApi.js";
 
 
   const updateReasons = (reasons) => {
-    console.log(reasons)
     reasons.forEach( reason => {
       API.saveReason({
         reasonList: reason

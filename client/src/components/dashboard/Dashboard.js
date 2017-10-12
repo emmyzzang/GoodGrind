@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import Navbar from '../navbar/Navbar.js'
 import updateFeelings from '../calls/updateFeelings.js'
 import FontAwesome from 'react-fontawesome';
-import { Link } from "react-router-dom";
 
 // MEGAMAN
 class Dashboard extends Component {

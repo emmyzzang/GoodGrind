@@ -9,13 +9,14 @@ import Goals from './components/goals/Goals.js';
 import Stats from './components/stats/Stats.js';
 import Update from './components/update/Update.js';
 import Dashboard from './components/dashboard/Dashboard.js';
-import Sad from './components/reasons/Reasons2.js';
+import Sad from './components/reasons/ReasonsSad.js';
 import Happy from './components/reasons/ReasonsHappy.js';
 import Meh from './components/reasons/ReasonsNeutral.js';
 
 // Stating 'extends Component' has nothing to do with the children
 // It is extending the capability of the class being declared
 // class App is declared with the extended ability of component
+
 class App extends Component {
   render() {
     return (

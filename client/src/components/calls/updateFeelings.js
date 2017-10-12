@@ -3,7 +3,6 @@ import API from "../../util/axiosApi.js";
 
 
   const updateFeelings = (fluf) => {
-    console.log(fluf)
     if (fluf) {
       API.saveFeeling({
         feeling: fluf
