@@ -9,7 +9,9 @@ import Goals from './components/goals/Goals.js';
 import Stats from './components/stats/Stats.js';
 import Update from './components/update/Update.js';
 import Dashboard from './components/dashboard/Dashboard.js';
-import DashboardReasons from './components/reasons/Reasons2.js';
+import Sad from './components/reasons/Reasons2.js';
+import Happy from './components/reasons/ReasonsHappy.js';
+import Meh from './components/reasons/ReasonsNeutral.js';
 
 // Stating 'extends Component' has nothing to do with the children
 // It is extending the capability of the class being declared
@@ -27,7 +29,9 @@ class App extends Component {
             <Route exact path="/goals" component={Goals} />
             <Route exact path="/update" component={Update} />
             <Route exact path="/stats" component={Stats} />
-            <Route exact path="/reasons" component={DashboardReasons} />
+            <Route exact path="/sad" component={Sad} />
+            <Route exact path="/happy" component={Happy} />
+            <Route exact path="/meh" component={Meh} />
             {/* TODO - NoMatch Route */}
           </Switch>
         </div>

@@ -6,28 +6,14 @@ import { Link } from "react-router-dom";
 
 // MEGAMAN
 class Dashboard extends Component {
-//   state = {
-//     feeling: '',
-//   }
-//
-//
-//
-// updateFeelings = () => {
-//
-//     onChange={(event) => {
-//       this.setState({
-//         feeling: event.target.value
-//       })
-//     }} />
 
 render() {
-  // const { feeling } = this.state
 
   return (
-    // Create a form based on a column
+
     <div className='td-form'>
 
-      <h1> <Link to={"/Happy"}>
+      <h1> <Link to={"/happy"}>
         <FontAwesome name='smile-o' onClick={(event) =>
           {
             event.preventDefault();
@@ -35,7 +21,7 @@ render() {
           }/>
         </Link> </h1>
 
-      <h1> <Link to={"/Meh"}>
+      <h1> <Link to={"/meh"}>
       <FontAwesome name='meh-o' onClick={(event) =>
           {
             event.preventDefault();
@@ -43,7 +29,7 @@ render() {
           }/>
         </Link> </h1>
 
-      <h1> <Link to={"/Sad"}>
+      <h1> <Link to={"/sad"}>
       <FontAwesome name='frown-o' onClick={(event) =>
           {
             event.preventDefault();
@@ -57,5 +43,4 @@ render() {
     }
   }
 
-// Because we are exporting the class
 export default Dashboard;
