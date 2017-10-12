@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import API from "../../util/axiosApi.js";
 
 
-  const updateFeelings = (feeling) => {
-    console.log(feeling)
-    if (feeling) {
+  const updateFeelings = (fluf) => {
+    console.log(fluf)
+    if (fluf) {
       API.saveFeeling({
-        feeling: feeling
+        feeling: fluf
       })
         .then(res => this.loadFeelings())
         .catch(err => console.log(err));

@@ -25,6 +25,7 @@ const requireSignin = passport.authenticate('local', { session: false });
 
 
   // GET route for getting all of the todos
+  ///////////////////////////////////////////
   router.get('/api/feelings', function(req, res) {
     // findAll returns all entries for a table when used with no options
     console.log('GET happened!???');
@@ -41,10 +42,16 @@ const requireSignin = passport.authenticate('local', { session: false });
     });
   });
 
+
+
+//Post Routes
+////////////////////////////////////////////
+
   router.post('/api/feelings', function (req, res, next) {
-    console.log('POST just happened');
+    console.log(req);
+    console.log(res)
     db.feelings.create({
-      feelings: req.body.feeling
+      feeling: req.body.feeling
     }).then(function(dbfeelings) {
       res.json(dbfeelings);
     });
