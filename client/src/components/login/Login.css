@@ -1,1 +1,92 @@
-// Placeholder
+
+
+/* TODO Clean this whole thing up, make responsive, attempt prettiness */
+
+
+h1 {
+
+color: lightblue;
+font-size: 50px;
+}
+
+/*.td-form {
+  color: lightblue;
+  font-size: 15px;
+}*/
+
+#signin {
+  margin-left: 25em;
+  margin-right: 25em;
+  background-color: lightgray;
+  text-align: center;
+  border-radius: 20px;
+
+}
+
+/*input.text {
+  margin-left: 25em;
+  margin-right: 25em;
+  margin-top: 1em;
+  background-color: blue;
+
+
+}*/
+.form{
+  position: relative;
+
+}
+input.text {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 2px solid #e0f2f1;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input {
+  width: 80%;
+  padding: 12px 20px;
+  margin-top: 3em;
+  border: 2px solid #e0f2f1;
+  border-radius: 4px;
+  margin: 8px 0;
+  /*margin-left: 20em;
+  margin-right: 20em;*/
+  display: inline-block;
+  background-color: white;
+  box-sizing: border-box;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
+
+
+}
+
+.formTextStyle {
+  margin-left: 20px;
+}
+
+label {
+  margin-top: 1em;
+  float: left;
+  margin-left: 5em;
+  margin-right: 20em;
+  font-family: raleway;
+
+}
+
+p.message {
+  width: 95%;
+  padding: 12px 20px 40px;
+  margin-top: 3em;
+  margin: 8px 0;
+  font-family: raleway;
+  position: relative;
+  text-align: center;
+}
+
+.btn {
+  padding: 2px;
+  margin-top: 2em;
+  height: 3em;
+}
