@@ -7,7 +7,7 @@ import API from "../../util/axiosApi.js";
       API.saveReason({
         reasonList: reason
       })
-      .then(res => console.log(res))
+      .then(res => console.log(res.reason))
       .catch(err => console.log(err));
     })
   };

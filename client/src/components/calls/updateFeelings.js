@@ -7,7 +7,7 @@ import API from "../../util/axiosApi.js";
       API.saveFeeling({
         feeling: fluf
       })
-        .then(res => this.loadFeelings())
+        .then(res => console.log(res.feeling))
         .catch(err => console.log(err));
     }
   };
