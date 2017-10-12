@@ -1,6 +1,7 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar.js'
-import updateReasons from '../calls/updateReasons.js'
+import Navbar from '../navbar/Navbar.js';
+import updateReasons from '../calls/updateReasons.js';
+import { Link } from "react-router-dom";
 
 class ReasonsSad extends React.Component {
   constructor() {
@@ -30,9 +31,11 @@ class ReasonsSad extends React.Component {
         <button onClick={() => {this.reply_click("underpaid")}} type="button" className="btn btn-lg reason" value={"underpaid"}> Underpaid </button>
         <button onClick={() => {this.reply_click("no upward mobility")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> No Upward Mobility </button>
 
-        <button onClick={() => {updateReasons(this.state.reasons)}}>
-              Submit
-        </button>
+        <Link to="/stats">
+          <button onClick={() => {updateReasons(this.state.reasons)}}>
+                Submit
+          </button>
+        </Link>
       </div>
     )
   }

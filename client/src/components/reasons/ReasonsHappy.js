@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '../navbar/Navbar.js'
 import updateReasons from '../calls/updateReasons.js'
+import { Link } from "react-router-dom";
 
 
 class ReasonsHappy extends React.Component {
@@ -33,9 +34,11 @@ class ReasonsHappy extends React.Component {
         <button onClick={() => {this.reply_click("Flexible Work Hours")}} type="button" className="btn btn-lg reason" value={"Flexible Work Hours"}> Flexible Work Hours </button>
         <button onClick={() => {this.reply_click("New Opportunities")}} type="button" className="btn btn-lg reason" value={"New Opportunities"}> New Opportunities </button>
 
-        <button onClick={() => {updateReasons(this.state.reasons)}}>
-              Submit
-        </button>
+        <Link to="/stats">
+          <button onClick={() => {updateReasons(this.state.reasons)}}>
+                Submit
+          </button>
+        </Link>
       </div>
     )
   }
