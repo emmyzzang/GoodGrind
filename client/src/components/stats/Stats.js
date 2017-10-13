@@ -43,7 +43,7 @@ class Stats extends React.Component {
             let dataArray = []
 
             for(var i = 0; i < res.data.length; i++) {
-              dataArray.push(String(res.data[i].reasonList))
+              dataArray.push(String(res.data[i].feeling))
             }
 
             this.setState({ feelings: dataArray }, function () {console.log(this.state.feelings)})
