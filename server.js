@@ -22,7 +22,11 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 // Static directory
 
-app.use(express.static("client/build"));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// 
+// app.use(express.static("client/build"));
 
 // Routes
 // =============================================================
