@@ -46,7 +46,7 @@ class Stats extends React.Component {
               dataArray.push(String(res.data[i].reasonList))
             }
 
-            this.setState({ feelings: res.data[0].feeling }, function () {console.log(this.state.feelings)})
+            this.setState({ feelings: dataArray }, function () {console.log(this.state.feelings)})
           }
       )
         .catch(err => console.log(err));
