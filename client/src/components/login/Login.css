@@ -1,18 +1,4 @@
-
-
 /* TODO Clean this whole thing up, make responsive, attempt prettiness */
-
-
-h1 {
-
-color: lightblue;
-font-size: 50px;
-}
-
-/*.td-form {
-  color: lightblue;
-  font-size: 15px;
-}*/
 
 #signin {
   margin-left: 25em;
@@ -20,49 +6,41 @@ font-size: 50px;
   background-color: lightgray;
   text-align: center;
   border-radius: 20px;
-
 }
 
-/*input.text {
-  margin-left: 25em;
-  margin-right: 25em;
-  margin-top: 1em;
-  background-color: blue;
 
-
-}*/
 .form{
   position: relative;
-
 }
+
+
 input.text {
-    width: 80%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 2px solid #e0f2f1;
-    border-radius: 4px;
-    box-sizing: border-box;
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 2px solid #e0f2f1;
+  border-radius: 4px;
+  display: inline-block;
+  box-sizing: border-box;
 }
 
 input {
   width: 80%;
   padding: 12px 20px;
-  margin-top: 3em;
-  border: 2px solid #e0f2f1;
-  border-radius: 4px;
   margin: 8px 0;
-  /*margin-left: 20em;
-  margin-right: 20em;*/
+  margin-top: 2em;
+  border: 1px solid #e0f2f1;
+  border-radius: 4px;
   display: inline-block;
   background-color: white;
   box-sizing: border-box;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.24);
-
-
 }
 
-.formTextStyle {
+.emailTextStyle {
+  padding-top: 2em;
+}
+.passwordTestStyle {
   margin-left: 20px;
 }
 
@@ -85,8 +63,17 @@ p.message {
   text-align: center;
 }
 
-.btn {
-  padding: 2px;
-  margin-top: 2em;
+.signInBtn {
   height: 3em;
+  margin-top: 3em;
+	border: 0;
+	border-radius: 3px;
+	outline: none;
+	background-color: lightgrey;
+    padding: 0.2em .7em .4em .7em;
+    margin-bottom: 10px;
+}
+
+.signInBtn:hover {
+	background-color: #80cbc4;
 }

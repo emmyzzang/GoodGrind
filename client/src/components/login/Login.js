@@ -18,14 +18,14 @@ render() {
   return (
     // Create a form based on a column
     <div className='containerStore {LoginStyle}'>
-    <h2>Something something zen something plaeholder...!</h2>
+    <h2>Something something zen something placeholder...!</h2>
     <div className='td-form'>
         <form id="signin"  name="signin" method="post" action="signin">
-      <div class='formTextStyle'>
+      <div class='emailTextStyle'>
                 <label for="email">Email Address</label>
       </div>
               <input class="text" name="email" type="text" />
-      <div class='formTextStyle'>
+      <div class='passwordTextStyle'>
               <label for="password">Password</label>
       </div>
               <input name="password" type="password" />
