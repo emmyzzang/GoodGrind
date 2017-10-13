@@ -33,10 +33,13 @@ d
         <h2 id = "buttonId" onClick={() => {this.reply_click("underpaid")}} type="button" className="btn btn-lg reason" value={"underpaid"}> <b> Underpaid </b> </h2>
         <h2 id = "buttonId" onClick={() => {this.reply_click("no upward mobility")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> <b> No Upward Mobility </b> </h2>
 
-        <Link to="/stats">
-          <FontAwesome name="arrow-circle-right" onClick={() => {updateReasons(this.state.reasons)}}/>
-        </Link>
+        <br></br>
 
+        <p id='submitP'>
+          <Link to="/stats">
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {updateReasons(this.state.reasons)}}/>
+          </Link>
+        </p>
       </div>
     )
   }

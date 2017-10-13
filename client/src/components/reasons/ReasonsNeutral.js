@@ -1,8 +1,9 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar.js'
-import updateReasons from '../calls/updateReasons.js'
+import Navbar from '../navbar/Navbar.js';
+import updateReasons from '../calls/updateReasons.js';
 import { Link } from "react-router-dom";
 import ReasonStyle from './reasons.css';
+import FontAwesome from 'react-fontawesome';
 
 
 class ReasonsNeutral extends React.Component {
@@ -22,28 +23,28 @@ class ReasonsNeutral extends React.Component {
   }
 
   render() {
-
     return (
+      <div className='buttonDiv {ReasonStyle}'>
 
-      <div className='td-form {NavbarStyle}'>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"long hours"}> <b> Long Hours </b> </h2>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"under appreciated"}> <b> Under Appreciated </b> </h2>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"bad work culture"}> <b> Bad Work Culture </b> </h2>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"difficult boss"}> <b> Difficult Boss </b> </h2>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"overworked"}> <b> Overworked </b> </h2>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"underpaid"}> <b> Underpaid </b> </h2>
+        <h2 onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> <b> No Upward Mobility </b> </h2>
 
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"long hours"}> Long Hours </button>
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"under appreciated"}> Under Appreciated </button>
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"bad work culture"}> Bad Work Culture </button>
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"difficult boss"}> Difficult Boss </button>
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"overworked"}> Overworked </button>
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"underpaid"}> Underpaid </button>
-        <button onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> No Upward Mobility </button>
+        <br></br>
 
-        <Link to="/stats">
-          <button onClick={() => {updateReasons(this.state.reasons)}}>
-                Submit
-          </button>
-        </Link>
+        <p id='submitP'>
+          <Link to="/stats">
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {updateReasons(this.state.reasons)}}/>
+          </Link>
+        </p>
       </div>
     )
   }
-};
+}
 
 
 
