@@ -1,0 +1,22 @@
+button {
+  text-align: center;
+  padding: 0px;
+  margin: 50px;
+  font-family: raleway;
+  text-align: center;
+
+}
+
+.buttonDiv {
+
+}
+
+#buttonId {
+ display: inline-block;
+ margin: 30px;
+ padding: 30px;
+}
+
+#arrow {
+  font-size: 100px;
+}

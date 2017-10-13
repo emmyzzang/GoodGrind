@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../navbar/Navbar.js'
 import updateReasons from '../calls/updateReasons.js'
 import { Link } from "react-router-dom";
+import ReasonStyle from './reasons.css';
 
 
 class ReasonsHappy extends React.Component {

@@ -2,6 +2,8 @@ import React from 'react';
 import Navbar from '../navbar/Navbar.js';
 import updateReasons from '../calls/updateReasons.js';
 import { Link } from "react-router-dom";
+import ReasonStyle from './reasons.css';
+import FontAwesome from 'react-fontawesome';
 
 class ReasonsSad extends React.Component {
   constructor() {
@@ -18,24 +20,23 @@ class ReasonsSad extends React.Component {
       reasons: this.state.reasons.concat(reasons)
     })
   }
-
+d
   render() {
     return (
-      <div className='td-form {NavbarStyle}'>
+      <div className='buttonDiv {ReasonStyle}'>
 
-        <button onClick={() => {this.reply_click("long hours")}} type="button" className="btn btn-lg reason" value={"long hours"}> Long Hours </button>
-        <button onClick={() => {this.reply_click("under appreciated")}} type="button" className="btn btn-lg reason" value={"under appreciated"}> Under Appreciated </button>
-        <button onClick={() => {this.reply_click("bad work culture")}} type="button" className="btn btn-lg reason" value={"bad work culture"}> Bad Work Culture </button>
-        <button onClick={() => {this.reply_click("difficult boss")}} type="button" className="btn btn-lg reason" value={"difficult boss"}> Difficult Boss </button>
-        <button onClick={() => {this.reply_click("overworked")}} type="button" className="btn btn-lg reason" value={"overworked"}> Overworked </button>
-        <button onClick={() => {this.reply_click("underpaid")}} type="button" className="btn btn-lg reason" value={"underpaid"}> Underpaid </button>
-        <button onClick={() => {this.reply_click("no upward mobility")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> No Upward Mobility </button>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("long hours")}} type="button" className="btn btn-lg reason" value={"long hours"}> <b> Long Hours </b> </h2>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("under appreciated")}} type="button" className="btn btn-lg reason" value={"under appreciated"}> <b> Under Appreciated </b> </h2>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("bad work culture")}} type="button" className="btn btn-lg reason" value={"bad work culture"}> <b> Bad Work Culture </b> </h2>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("difficult boss")}} type="button" className="btn btn-lg reason" value={"difficult boss"}> <b> Difficult Boss </b> </h2>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("overworked")}} type="button" className="btn btn-lg reason" value={"overworked"}> <b> Overworked </b> </h2>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("underpaid")}} type="button" className="btn btn-lg reason" value={"underpaid"}> <b> Underpaid </b> </h2>
+        <h2 id = "buttonId" onClick={() => {this.reply_click("no upward mobility")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> <b> No Upward Mobility </b> </h2>
 
         <Link to="/stats">
-          <button onClick={() => {updateReasons(this.state.reasons)}}>
-                Submit
-          </button>
+          <FontAwesome name="arrow-circle-right" onClick={() => {updateReasons(this.state.reasons)}}/>
         </Link>
+
       </div>
     )
   }

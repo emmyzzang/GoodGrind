@@ -44,6 +44,10 @@ h2 {
 
 }
 
+h2:active{
+  color: #80cbc4;
+}
+
 .good {
   float: left;
   margin-top: 2%;
