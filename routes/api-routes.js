@@ -47,7 +47,7 @@ const requireSignin = passport.authenticate('local', { session: false });
     // console.log('GET happened!???');
     // db.reasons.findAll({}).then(function(data) {
     //   res.json(data);
-    });
+    // });
   });
 
 //Post Routes

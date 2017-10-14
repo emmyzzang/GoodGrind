@@ -14,7 +14,7 @@ export default {
   },
   getToDo: function() {
     return axios.post("/api/todo");
-  }
+  },
   // // Deletes the book with the given id
   // deleteBook: function(id) {
   //   return axios.delete("/api/books/" + id);
@@ -25,7 +25,7 @@ export default {
   // Saves a book to the database
   saveFeeling: function(feelingData) {
     return axios.post("/api/feelings", feelingData);
-  }
+  },
 
   saveToDo: function(item) {
     return axios.post("/api/todo", item);
