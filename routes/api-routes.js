@@ -42,7 +42,13 @@ const requireSignin = passport.authenticate('local', { session: false });
     });
   });
 
-
+  router.get('/api/todo', function(req, res) {
+    // findAll returns all entries for a table when used with no options
+    // console.log('GET happened!???');
+    // db.reasons.findAll({}).then(function(data) {
+    //   res.json(data);
+    });
+  });
 
 //Post Routes
 ////////////////////////////////////////////
@@ -64,6 +70,14 @@ const requireSignin = passport.authenticate('local', { session: false });
      res.json(dbreasons);
    });
 });
+
+  router.post('/api/todo', function (req, res, next) {
+    // db.reasons.create({
+    //   reasonList: req.body.reasonList
+    // }).then(function(dbreasons) {
+    //   res.json(dbreasons);
+    // });
+  });
 
   // router.put('/api/data', function(req, res) {
   //   console.log('PUT just happened');
