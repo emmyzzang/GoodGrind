@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import API from "../../util/axiosApi.js";
 
-
-
 /////////
 
 // whitebaording
