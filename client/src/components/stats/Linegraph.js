@@ -10,9 +10,9 @@ class Linegraph extends React.Component {
 
   render() {
     return (
-        <LineChart width={4000} height={4000} data={this.state.data}>
-        <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-        </LineChart>
+        // <LineChart width={4000} height={4000} data={this.state.data}>
+        // <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+        // </LineChart>
     )
   }
 }
