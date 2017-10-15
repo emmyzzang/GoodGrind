@@ -34,7 +34,8 @@ class Goals extends React.Component {
         >
             <VictoryLine
               style={{
-                data: {stroke: "cadetblue"}
+                data: {stroke: "#80cbc4",
+                        fill: "#80cbc4"}
               }}
               data={[
                 {a: new Date(2017, 10, 1), b: -1},
