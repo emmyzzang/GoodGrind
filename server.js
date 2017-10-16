@@ -5,6 +5,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const routes = require("./routes/api-routes");
+const cors = require('cors');
 
 // Sets up the Express App
 // =============================================================
@@ -13,6 +14,9 @@ var PORT = process.env.PORT || 8080;
 
 // Requiring our models for syncing
 let db = require("./models");
+
+// Enable cors
+app.use(cors());
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
