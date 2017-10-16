@@ -4,11 +4,7 @@ import UpdateStyle from './Update.css';
 import Navbar from '../navbar/Navbar.js'
 import updateFeelings from '../calls/updateFeelings.js'
 import FontAwesome from 'react-fontawesome';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from 'react-router-dom'
+
 
 // MEGAMAN
 class Update extends Component {

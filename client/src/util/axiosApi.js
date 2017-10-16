@@ -12,8 +12,8 @@ export default {
   getReasons: function() {
     return axios.get("/api/reasons/");
   },
-  getToDo: function() {
-    return axios.post("/api/todo");
+  getGoals: function() {
+    return axios.post("/api/goals");
   },
   // // Deletes the book with the given id
   // deleteBook: function(id) {
@@ -27,7 +27,7 @@ export default {
     return axios.post("/api/feelings", feelingData);
   },
 
-  saveToDo: function(item) {
-    return axios.post("/api/todo", item);
+  saveGoal: function(item) {
+    return axios.post("/api/goals", item);
   }
 };
