@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ReachDOM from 'reach-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+import reduxThunk from 'redux-thunk';
+
+import './App.css'; // TODO - check if used
+
+// Components
 import Navbar from './components/navbar/Navbar.js';
 import Login from './components/login/Login.js';
 import Register from './components/register/Register.js';

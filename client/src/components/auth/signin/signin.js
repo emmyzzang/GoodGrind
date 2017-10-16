@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import LoginStyle from './Login.css';
+import LoginStyle from './signin.css';
 import FontAwesome from 'react-fontawesome';
-// MEGAMAN
-class Login extends Component {
+
+class Signin extends Component {
   state = {
     userName: '',
     password: '',
