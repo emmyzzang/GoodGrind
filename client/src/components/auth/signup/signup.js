@@ -31,7 +31,7 @@ class Signup extends Component {
 
       return (
           <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
-            <fieldset className=="form-group">
+            <fieldset className="form-group">
               <label>Email: </label>
               <Field
                 name="email"

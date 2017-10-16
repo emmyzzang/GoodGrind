@@ -10,7 +10,7 @@ const cors = require('cors');
 // Sets up the Express App
 // =============================================================
 let app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3090;
 
 // Requiring our models for syncing
 let db = require("./models");

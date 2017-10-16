@@ -1,5 +1,5 @@
 import React from 'react';
-import ReachDOM from 'reach-dom';
+import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
@@ -7,9 +7,9 @@ import reduxThunk from 'redux-thunk';
 
 // Components
 import App from './components/app'
-import Signin from './components/signin/signin'; // TODO - fix & Adapt CSS
-import Signout from './components/signout/signout';
-import Signup from './components/signup/signup';
+import Signin from './components/auth/signin/signin'; // TODO - fix & Adapt CSS
+import Signout from './components/auth/signout/signout';
+import Signup from './components/auth/signup/signup';
 // TODO - Remove Register folder && Register.js
 
 // Features //
