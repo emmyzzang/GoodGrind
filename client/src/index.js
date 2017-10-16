@@ -45,13 +45,13 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
 
         // Features...
-        <Route path="/dashboard" component={RequireAuth(Dashboard)} />
-        <Route path="/goals" component={RequireAuth(Goals)} />
-        <Route path="/update" component={RequireAuth(Update)} />
-        <Route path="/stats" component={RequireAuth(Stats)} />
-        <Route path="/sad" component={RequireAuth(Sad)} />
-        <Route path="/happy" component={RequireAuth(Happy)} />
-        <Route path="/meh" component={RequireAuth(Meh)} />
+        <Route path="dashboard" component={RequireAuth(Dashboard)} />
+        <Route path="goals" component={RequireAuth(Goals)} />
+        <Route path="update" component={RequireAuth(Update)} />
+        <Route path="stats" component={RequireAuth(Stats)} />
+        <Route path="sad" component={RequireAuth(Sad)} />
+        <Route path="happy" component={RequireAuth(Happy)} />
+        <Route path="meh" component={RequireAuth(Meh)} />
       </Route>
     </Router>
   </Provider>, document.querySelector('.container'));

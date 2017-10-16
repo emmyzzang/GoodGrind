@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import * as actions from '../../../actions'; // TODO - create actions
+import * as actions from '../../../actions';
 
 const renderInput = ({ input, label, type, meta: { touched, error, warning }}) => (
   <fieldset className="form-group">
@@ -28,7 +28,6 @@ class Signup extends Component {
 
   render() {
       const { handleSubmit } = this.props;
-
 
       return (
           <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
@@ -95,4 +94,3 @@ export default reduxForm({
 })(
   connect(mapStateToProps, actions)(Signup)
 );
-// TODO ---------------------^ actions
