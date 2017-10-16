@@ -6,14 +6,20 @@
   "dependencies": {
     "axios": "^0.16.2",
     "d3": "^4.11.0",
+    "lodash": "^4.17.4",
     "moment": "^2.18.1",
     "react": "^15.5.0",
     "react-dom": "^15.4.1",
     "react-fontawesome": "^1.6.1",
     "react-moment": "^0.6.5",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.14",
     "recharts": "0.22.4",
+    "redux": "^3.7.2",
+    "redux-form": "^7.1.1",
+    "redux-thunk": "^2.2.0",
     "victory": "^0.23.1"
   },
   "scripts": {

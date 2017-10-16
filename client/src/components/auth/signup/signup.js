@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
 import * as actions from '../../../actions'; // TODO - create actions
 
-
-
 const renderInput = ({ input, label, type, meta: { touched, error, warning }}) => (
   <fieldset className="form-group">
     <label htmlFor={input.name}>{label}</label>
@@ -12,8 +10,6 @@ const renderInput = ({ input, label, type, meta: { touched, error, warning }}) =
     { touched && error && <span className="text-danger">{error}</span>}
   </fieldset>
 );
-
-
 
 class Signup extends Component {
   handleFormSubmit(formProps) {
@@ -99,5 +95,4 @@ export default reduxForm({
 })(
   connect(mapStateToProps, actions)(Signup)
 );
-
 // TODO ---------------------^ actions

@@ -2,18 +2,17 @@ import React from 'react';
 import ReachDOM from 'reach-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
 import reduxThunk from 'redux-thunk';
 
-import './App.css'; // TODO - check if used
-
 // Components
-import App from './app'
-import Navbar from './components/navbar/Navbar';
-import Login from './components/login/Login';
-import Register from './components/register/Register';
+import App from './components/app'
+import Signin from './components/signin/signin'; // TODO - fix & Adapt CSS
+import Signout from './components/signout/signout';
+import Signup from './components/signup/signup';
+// TODO - Remove Register folder && Register.js
+
+// Features //
 import Goals from './components/goals/Goals';
 import Stats from './components/stats/Stats';
 import Update from './components/update/Update';
@@ -21,37 +20,38 @@ import Dashboard from './components/dashboard/Dashboard';
 import Sad from './components/reasons/ReasonsSad';
 import Happy from './components/reasons/ReasonsHappy';
 import Meh from './components/reasons/ReasonsNeutral';
+// Features End //
 
-// Stating 'extends Component' has nothing to do with the children
-// It is extending the capability of the class being declared
-// class App is declared with the extended ability of component
+import RequireAuth from './components/auth/require_auth';
+import reducers from './reducers';
+import { AUTH_USER } from './actions/types';
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Login} />
-            <Route exact path="/register" component={Register} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/goals" component={Goals} />
-            <Route exact path="/update" component={Update} />
-            <Route exact path="/stats" component={Stats} />
-            <Route exact path="/sad" component={Sad} />
-            <Route exact path="/happy" component={Happy} />
-            <Route exact path="/meh" component={Meh} />
-            {/* TODO - NoMatch Route */}
-          </Switch>
-        </div>
-      </Router>
-    );
-  }
+// Middleware
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
+const store = createStoreWithMiddleware(reducers);
+const token = localStorage.getItem('token');
+
+if(token) {
+  store.dispatch({ type: AUTH_USER });
 }
 
-// So there's two things - states and props
-// states is used internally at that specific class
-// props in-a-nutshell is externally controlled by the parent
+ReactDOM.render(
+  <Provider store={store}>
+    <Router history={browserHistory}>
+      <Route path="/" component={App}>
+        <IndexRoute component={Signin} />
+        <Route path="signin" component={Signin} />
+        <Route path="signout" component={Signout} />
+        <Route path="signup" component={Signup} />
 
-export default App;
+        // Features...
+        <Route path="/dashboard" component={RequireAuth(Dashboard)} />
+        <Route path="/goals" component={RequireAuth(Goals)} />
+        <Route path="/update" component={RequireAuth(Update)} />
+        <Route path="/stats" component={RequireAuth(Stats)} />
+        <Route path="/sad" component={RequireAuth(Sad)} />
+        <Route path="/happy" component={RequireAuth(Happy)} />
+        <Route path="/meh" component={RequireAuth(Meh)} />
+      </Route>
+    </Router>
+  </Provider>, document.querySelector('.container'));
