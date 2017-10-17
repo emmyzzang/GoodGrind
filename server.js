@@ -5,14 +5,18 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const routes = require("./routes/api-routes");
+const cors = require('cors');
 
 // Sets up the Express App
 // =============================================================
 let app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 let db = require("./models");
+
+// Enable cors
+app.use(cors());
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
@@ -34,7 +38,7 @@ module.exports = app;
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
 // Syncing our sequelize models and then starting our Express app

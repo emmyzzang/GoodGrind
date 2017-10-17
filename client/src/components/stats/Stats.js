@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import API from "../../util/axiosApi.js";
-
-
+import API from "../../actions/axiosApi.js";
 
 /////////
 
