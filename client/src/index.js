@@ -2,56 +2,78 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, IndexRoute, browserHistory} from 'react-router';
 import reduxThunk from 'redux-thunk';
 
-// Components
-import App from './components/app'
-import Signin from './components/auth/signin/signin'; // TODO - fix & Adapt CSS
-import Signout from './components/auth/signout/signout';
-import Signup from './components/auth/signup/signup';
-// TODO - Remove Register folder && Register.js
+import App from './components/app';
 
-// Features //
-import Goals from './components/goals/Goals';
+// Auth Pages
+import Signin from './components/auth/signin';
+import Signout from './components/auth/signout';
+import Signup from './components/auth/signup';
+
+// Reasons Pages
+import ReasonsHappy from './components/reasons/ReasonsHappy';
+import ReasonsNeutral from './components/reasons/ReasonsNeutral';
+import ReasonsSad from './components/reasons/ReasonsSad';
+
+// Stats Pages
+import Linegraph from './components/stats/Linegraph';
 import Stats from './components/stats/Stats';
-import Update from './components/update/Update';
-import Dashboard from './components/dashboard/Dashboard';
-import Sad from './components/reasons/ReasonsSad';
-import Happy from './components/reasons/ReasonsHappy';
-import Meh from './components/reasons/ReasonsNeutral';
-// Features End //
+
+// Update Page
+import Update from './components/update';
+
+// Goals Pages
+import Goals from './components/goals';
+
+// note: feature is only used as a "cookie-cutter" template
+import Feature from './components/feature';
+
+import Dashboard from './components/dashboard';
 
 import RequireAuth from './components/auth/require_auth';
+import Welcome from './components/welcome';
+
 import reducers from './reducers';
 import { AUTH_USER } from './actions/types';
 
-// Middleware
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 const store = createStoreWithMiddleware(reducers);
 const token = localStorage.getItem('token');
+// If we have a token, consider the user to be signed in
 
 if(token) {
+  // we need to update application state
   store.dispatch({ type: AUTH_USER });
 }
 
 ReactDOM.render(
   <Provider store={store}>
+    {/* Step 2 - Router & remove </App> */}
     <Router history={browserHistory}>
       <Route path="/" component={App}>
+
+        {/* Sets default page to Signin */}
         <IndexRoute component={Signin} />
+        {/* Authentication Routes */}
         <Route path="signin" component={Signin} />
         <Route path="signout" component={Signout} />
         <Route path="signup" component={Signup} />
-
-        // Features...
+        {/* Template Route used for cookie cutter */}
+        <Route path="feature" component={RequireAuth(Feature)} />
+        {/* Dashboard Route */}
         <Route path="dashboard" component={RequireAuth(Dashboard)} />
-        <Route path="goals" component={RequireAuth(Goals)} />
+        {/* Reasons Routes */}
+        <Route path="happy" component={RequireAuth(ReasonsHappy)} />
+        <Route path="meh" component={RequireAuth(ReasonsNeutral)} />
+        <Route path="sad" component={RequireAuth(ReasonsSad)} />
+        {/* Update, Goals, Stats Routes */}
         <Route path="update" component={RequireAuth(Update)} />
+        <Route path="goals" component={RequireAuth(Goals)} />
         <Route path="stats" component={RequireAuth(Stats)} />
-        <Route path="sad" component={RequireAuth(Sad)} />
-        <Route path="happy" component={RequireAuth(Happy)} />
-        <Route path="meh" component={RequireAuth(Meh)} />
       </Route>
     </Router>
-  </Provider>, document.querySelector('.container'));
+
+  </Provider>
+  , document.querySelector('.container'));

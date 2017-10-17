@@ -1,11 +1,10 @@
-import React from 'react';
-import Navbar from '../navbar/Navbar.js';
-import updateReasons from '../calls/updateReasons.js';
-import { Link } from "react-router-dom";
-import ReasonStyle from './reasons.css';
+import React, { Component } from 'react';
+import UpdateReasons from '../../actions/updateReasons.js';
+import { Link } from 'react-router';
+// import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
-class ReasonsSad extends React.Component {
+class ReasonsSad extends Component {
   constructor() {
     super();
     this.state = {
@@ -20,7 +19,7 @@ class ReasonsSad extends React.Component {
       reasons: this.state.reasons.concat(reasons)
     })
   }
-d
+
   render() {
     return (
       <div className='buttonDiv {ReasonStyle}'>
@@ -37,7 +36,7 @@ d
 
         <p id='submitP'>
           <Link to="/stats">
-            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {updateReasons(this.state.reasons)}}/>
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {UpdateReasons(this.state.reasons)}}/>
           </Link>
         </p>
       </div>

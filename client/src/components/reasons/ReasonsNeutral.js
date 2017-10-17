@@ -1,12 +1,10 @@
-import React from 'react';
-import Navbar from '../navbar/Navbar.js';
-import updateReasons from '../calls/updateReasons.js';
-import { Link } from "react-router-dom";
-import ReasonStyle from './reasons.css';
+import React, { Component } from 'react';
+import UpdateReasons from '../../actions/updateReasons.js';
+import { Link } from 'react-router';
+// import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
-
-class ReasonsNeutral extends React.Component {
+class ReasonsNeutral extends Component {
   constructor() {
     super();
     this.state = {
@@ -38,7 +36,7 @@ class ReasonsNeutral extends React.Component {
 
         <p id='submitP'>
           <Link to="/stats">
-            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {updateReasons(this.state.reasons)}}/>
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {UpdateReasons(this.state.reasons)}}/>
           </Link>
         </p>
       </div>

@@ -10,7 +10,7 @@ const cors = require('cors');
 // Sets up the Express App
 // =============================================================
 let app = express();
-var PORT = process.env.PORT || 3090;
+var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
 let db = require("./models");
@@ -38,7 +38,7 @@ module.exports = app;
 // Send every request to the React app
 // Define any API routes before this runs
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile(path.join(__dirname, "./client/index.html"));
 });
 
 // Syncing our sequelize models and then starting our Express app

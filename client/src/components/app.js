@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Navbar from './navbar/Navbar.js';
-import registerServiceWorker from '../registerServiceWorker';
+import Navbar from './navbar';
 
 export default class App extends Component {
   render() {
