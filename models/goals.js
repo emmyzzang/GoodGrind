@@ -1,15 +1,15 @@
-var Reasons = require("./reasons.js");
+
 
 module.exports = function(sequelize, DataTypes) {
-  var Feelings = sequelize.define("feelings", {
-    feelingId: {
+  var Goals = sequelize.define("goals", {
+    goalId: {
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    feeling: {
-      type: DataTypes.ENUM('-1','0','+1'),
-      defaultValue:'0'
+    goal: {
+      type: DataTypes.STRING,
+      required: true
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -17,7 +17,5 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
-  return Feelings;
-  Feelings.hasMany(Reasons,{as: 'reasonList', foreignKey: 'feelingId'})
 
 };
