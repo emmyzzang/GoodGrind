@@ -42,7 +42,7 @@ const requireSignin = passport.authenticate('local', { session: false });
     });
   });
 
-  router.get('/api/todo', function(req, res) {
+  router.get('/api/goals', function(req, res) {
     // findAll returns all entries for a table when used with no options
     // console.log('GET happened!???');
     // db.reasons.findAll({}).then(function(data) {
@@ -71,7 +71,7 @@ const requireSignin = passport.authenticate('local', { session: false });
    });
 });
 
-  router.post('/api/todo', function (req, res, next) {
+  router.post('/api/goals', function (req, res, next) {
     // db.reasons.create({
     //   reasonList: req.body.reasonList
     // }).then(function(dbreasons) {

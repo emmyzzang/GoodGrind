@@ -3,13 +3,8 @@ import { Link } from 'react-router';
 // import UpdateStyle from './Update.css';
 import UpdateFeelings from '../actions/updateFeelings.js'
 import FontAwesome from 'react-fontawesome';
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from 'react-router-dom'
 
-// MEGAMAN
+
 class Update extends Component {
 
 render() {
