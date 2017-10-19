@@ -45,9 +45,9 @@ const requireSignin = passport.authenticate('local', { session: false });
   router.get('/api/goals', function(req, res) {
     // findAll returns all entries for a table when used with no options
     // console.log('GET happened!???');
-    // db.reasons.findAll({}).then(function(data) {
-    //   res.json(data);
-    // });
+    db.goals.findAll({}).then(function(data) {
+      res.json(data);
+    });
   });
 
 //Post Routes
@@ -72,11 +72,11 @@ const requireSignin = passport.authenticate('local', { session: false });
 });
 
   router.post('/api/goals', function (req, res, next) {
-    // db.reasons.create({
-    //   reasonList: req.body.reasonList
-    // }).then(function(dbreasons) {
-    //   res.json(dbreasons);
-    // });
+    db.goals.create({
+      goal: req.body.goal
+    }).then(function(dbgoals) {
+      res.json(dbgoals);
+    });
   });
 
   // router.put('/api/data', function(req, res) {
@@ -84,9 +84,11 @@ const requireSignin = passport.authenticate('local', { session: false });
   //   res.json('put just happened - this is where results of the db will be');
   // });
 
-  // router.delete('/api/data', function(req, res) {
-  //   console.log('DELETE just happened');
-  //   res.json('delete just happened - this can return a boolean of successful delete or not');
-  // });
+  router.delete('/api/goals', function(req, res) {
+    db.goals.destroy({
+      goal: req.body.goal
+    })
+    res.json('delete just happened - this can return a boolean of successful delete or not');
+  });
 
 module.exports = router

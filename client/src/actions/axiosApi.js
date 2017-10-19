@@ -7,28 +7,27 @@ export default {
   // },
   // Gets the book with the given id
   getFeelings: function() {
-    return axios.get("/api/feelings/");
+    return axios.get("http://127.0.0.1:3000/api/feelings/");
   },
   getReasons: function() {
-    return axios.get("/api/reasons/");
+    return axios.get("http://127.0.0.1:3000/api/reasons/");
   },
-  getToDo: function() {
-    return axios.post("/api/goals");
+  getGoals: function() {
+    return axios.get("http://127.0.0.1:3000/api/goals");
   },
-  // // Deletes the book with the given id
-  // deleteBook: function(id) {
-  //   return axios.delete("/api/books/" + id);
-  // },
+  // Deletes the book with the given id
+  deleteGoal: function(goal) {
+    return axios.delete("http://127.0.0.1:3000/api/goals", goal);
+  },
   saveReason: function(reasonList) {
-    return axios.post("/api/reasons", reasonList);
+    return axios.post("http://127.0.0.1:3000/api/reasons", reasonList);
   },
-
-  // Saves a book to the databasesd
+  // Saves a book to the database
   saveFeeling: function(feelingData) {
-    return axios.post("/api/feelings", feelingData);
+    return axios.post("http://127.0.0.1:3000/api/feelings", feelingData);
   },
 
-  saveToDo: function(item) {
-    return axios.post("/api/goals", item);
+  saveGoals: function(goal) {
+    return axios.post("http://127.0.0.1:3000/api/goals", goal);
   }
 };

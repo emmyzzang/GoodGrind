@@ -5,53 +5,56 @@ import API from "../actions/axiosApi.js";
 
 class Goals extends Component {
 
- constructor(props) {
-  super(props);
-  this.state = {
+  state = {
     goalList: [],
     goal: ''
   };
-  this.handleChange = this.handleChange.bind(this);
-  this.handleSubmit = this.handleSubmit.bind(this);
-}
+  // this.handleChange = this.handleChange.bind(this);
+  // this.handleSubmit = this.handleSubmit.bind(this);
+
 
     // When the component mounts, load all books and save them to this.state.books
-  componentDidMount() {
+  componentWillMount() {
     this.loadGoals();
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.goalList !== nextState.goalList;
-  }
     // Loads all books  and sets them to this.state.books
   loadGoals = () => {
     API.getGoals()
       .then(res => {
-        let goalListInFucntion = [...res.data]
-        this.setState({goalList: this.state.goalList.concat(goalListInFucntion)})
-        document.getElementById('#goalList').innerHTML = this.state.goalList
+
+        let goalListInFunction = []
+
+        for(var i = 0; i < res.data.length; i++) {
+          goalListInFunction.push(res.data[i].goal)
+        }
+        this.setState({goalList: this.state.goalList.concat(goalListInFunction)})
       })
       .catch(err => console.log(err));
-
   };
 
-    // Deletes a book from the database with a given id, then reloads books from the db
-  deleteGoal = id => {
-    // API.deleteGoal(id)
-    //   .then(res => this.loadBooks())
-    //   .catch(err => console.log(err));
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.goalList !== nextState.goalList;
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    return this.state.goal !== nextState.goal;
+  }
+
+  deleteGoal = goal => {
+    API.deleteGoal(goal)
+      .then(res => this.loadBooks())
+      .catch(err => console.log(err));
   };
 
-    // Handles updating component state when the user types into the input field
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
-  handleSubmit(event) {
-    event.preventDefault();
-      API.saveGoal({
+  handleSubmit() {
+      API.saveGoals({
         goal: this.state.goal
       })
       .then(res => console.log('goal submited'))
@@ -64,18 +67,23 @@ render() {
     <div>
       <div>
         <h1>Goals</h1>
-        <div id='goalList'> </div>
+        <div> { this.state.goalList.map( (goal) => (<div> <li> {goal} </li>
+          <button value={goal} onClick={() => this.deleteGoal(goal)}> Delete </button> </div>))} </div>
       </div>
+
+      //adjust to also get the id from the API.
+      //save state with an array/object with ID(if wording doesn't work)
+      //
 
       <div>
           <input
             value= {this.state.value}
             name = 'goal'
-            onChange={this.handleChange}
+            onChange={this.handleChange.bind(this)}
           />
       </div>
 
-      <h2 onClick={(event) => handleSubmit(event)}> Add Goal </h2>
+      <h2 onClick={() => this.handleSubmit()}> Add Goal </h2>
     </div>
       );
     }
