@@ -19,13 +19,13 @@ import ReasonsSad from './components/reasons/ReasonsSad';
 
 // Stats Pages
 import Linegraph from './components/stats/Linegraph';
-import Stats from './components/stats/Stats';
+import Stats from './components/stats/stats';
 
 // Update Page
 import Update from './components/update';
 
 // Goals Pages
-import Goals from './components/goals';
+// import Goals from './components/goals';  TODO - GOALS PAGE RE-ENABLE
 
 // note: feature is only used as a "cookie-cutter" template
 import Feature from './components/feature';
@@ -70,7 +70,7 @@ ReactDOM.render(
         <Route path="sad" component={RequireAuth(ReasonsSad)} />
         {/* Update, Goals, Stats Routes */}
         <Route path="update" component={RequireAuth(Update)} />
-        <Route path="goals" component={RequireAuth(Goals)} />
+        {/*<Route path="goals" component={RequireAuth(Goals)} />*/}
         <Route path="stats" component={RequireAuth(Stats)} />
       </Route>
     </Router>
