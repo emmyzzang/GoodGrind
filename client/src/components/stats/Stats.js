@@ -38,6 +38,10 @@ class Stats extends Component {
               // Maps incoming data (res.data[i]) into the feelingArray
               // Data must be in the format - {a: new Date(2017-10-30T04:11:23.000Z), b: +1}
               // in order to work in victory charts
+              // TODO -
+              // need to construct a bar chart by building a data model (from online example)
+              // a: is respect to the X-Axis (Reason Fieldname)
+              // b: is respect to the Y-Axis (Count)
               temp["a"] = new Date(res.data[i].createdAt);
               temp["b"] = Number(res.data[i].feeling);
               feelingArray.push(temp);
