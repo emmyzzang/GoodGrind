@@ -12,6 +12,7 @@ export default {
   getReasons: function() {
     return axios.get("http://127.0.0.1:3000/api/reasons/");
   },
+
   getGoals: function() {
     return axios.get("http://127.0.0.1:3000/api/goals");
   },

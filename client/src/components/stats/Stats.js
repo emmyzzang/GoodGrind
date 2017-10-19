@@ -1,28 +1,12 @@
 import React, { Component } from 'react';
+import { LineChart, Line } from 'recharts';
+import { render } from 'react-dom';
+import { VictoryChart, VictoryLabel, VictoryAxis, VictoryLine, VictoryScatter,
+  VictoryVoronoiContainer, VictoryGroup, VictoryTooltip, VictoryZoomContainer,
+  VictoryBrushContainer} from 'victory';
 import API from "../../actions/axiosApi.js";
 
-/////////
-
-// whitebaording
-//
-// My thoughts of some of the stats:
-//
-// Feelings: This table's feeling key three numbers: -1 , 0, 1.
-// -1:  This means the person selected that they were unhappy. This causes the graph to go down over time.
-// 0:  This means the person is okay in their role.  Neither happy or sad so the graph line is flat over time.
-// +1: This means the person is happy in their role!  This should cause the graph to render upwards over time.
-//
-// Reasons: Can have multiple reasons for any Single day.
-//
-// I have two graph ideas here (Or any others you want!)
-//     Pie chart that displays 1-5 top reasons they are unhappy at work, the size of the pie, within the chat,
-//        is dependent on how many times they have selected that particular reason.
-//     Some kind of graph that displays what was selected for each day (I'm not sure what kind would be best here.
-//         since there are multiple items selected for each day, I'm not sure how to best render that.)
-
-
-
-class Stats extends React.Component {
+class Stats extends Component {
   state = {
     feelings:[],
     reasons: []
@@ -33,24 +17,6 @@ class Stats extends React.Component {
     this.getReasons()
   }
 
-  getFeelings = () => {
-      API.getFeelings()
-
-        .then( res =>
-          {
-            let dataArray = []
-
-            for(var i = 0; i < res.data.length; i++) {
-              dataArray.push(String(res.data[i].feeling))
-            }
-
-            this.setState({ feelings: dataArray }, function () {console.log(this.state.feelings)})
-          }
-      )
-        .catch(err => console.log(err));
-      };
-
-
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.feelings !== nextState.feelings;
   }
@@ -59,29 +25,115 @@ class Stats extends React.Component {
     return this.state.reasons !== nextState.reasons;
   }
 
-  getReasons = () => {
-    API.getReasons()
-      .then( res =>
-      {
-        let dataArray = []
+  getFeelings = () => {
+      API.getFeelings()
 
-        for(var i = 0; i < res.data.length; i++) {
-          dataArray.push(res.data[i].reasonList)
-        }
+        .then( res =>
+          {
+            let feelingArray = [];
+            let feelingdateArray = [];
 
-        this.setState({ reasons: dataArray }, function() {console.log(this.state.reasons)})
-        })
-      }
+            for(var i = 0; i < res.data.length; i++) {
+              var temp = new Object();
+              // Maps incoming data (res.data[i]) into the feelingArray
+              // Data must be in the format - {a: new Date(2017-10-30T04:11:23.000Z), b: +1}
+              // in order to work in victory charts
+              // TODO -
+              // need to construct a bar chart by building a data model (from online example)
+              // a: is respect to the X-Axis (Reason Fieldname)
+              // b: is respect to the Y-Axis (Count)
+              temp["a"] = new Date(res.data[i].createdAt);
+              temp["b"] = Number(res.data[i].feeling);
+              feelingArray.push(temp);
+            }
+
+            this.setState({ feelings: feelingArray }, function () {console.log(this.state.feelings)})
+          }
+      )
+        .catch(err => console.log(err));
+   };
+
+   getReasons = () => {
+     API.getReasons()
+       .then( res =>
+       {
+         let dataArray = []
+
+         for(var i = 0; i < res.data.length; i++) {
+           dataArray.push(res.data[i].reasonList)
+         }
+
+         console.log('Reasons Data: ' +dataArray);
+
+         this.setState({ reasons: dataArray }, function() {console.log(this.state.reasons)})
+         })
+       };
+
 
   render() {
     return (
-      <div className='statsDiv'>
-        <h1> {String(this.state.feelings)} </h1>
-        <h1> {this.state.reasons} </h1>
+      <div>
+        <VictoryChart width={500} height={250} scale={{x: "time"}}
+          containerComponent={
+            <VictoryZoomContainer
+              zoomDimension="x"
+            />
+          }
+        >
+            <VictoryLine
+              style={{
+                data: {stroke: "#80cbc4",
+
+                        }
+              }}
+
+              data={this.state.feelings}
+              x="a"
+              y="b"
+            />
+
+            <VictoryScatter data={this.state.feelings}
+            x="a"
+            y="b"
+                size={3}
+                style={{ data: { fill: "#80cbc4"} }}
+            />
+
+            <VictoryAxis crossAxis
+              standalone={false}
+            />
+          <VictoryAxis dependentAxis crossAxis
+            domain={[-2, 2]}
+            orientation="left"
+            standalone={false}
+          />
+
+          </VictoryChart>
       </div>
-    )
+
+    // TODO - Fix a lot of shit. Note to self: stop being a noob scrub with state.
+    //   <div>
+    //    <VictoryChart height={400} width={400}
+    //      domainPadding={{x: 50, y: [0, 20]}}
+    //      scale={{x: "time"}}
+    //    >
+    //      <VictoryBar
+    //        dataComponent={
+    //          <Bar events={{ onMouseOver: handleMouseOver }}/>
+    //        }
+    //        style={this.state.style}
+    //        data={[
+    //          {x: new Date(1986, 1, 1), y: 2},
+    //          {x: new Date(1996, 1, 1), y: 3},
+    //          {x: new Date(2006, 1, 1), y: 5},
+    //          {x: new Date(2016, 1, 1), y: 4}
+    //        ]}
+    //      />
+    //    </VictoryChart>
+    //  </div>
+
+    );
   }
 }
-
 
 export default Stats;
