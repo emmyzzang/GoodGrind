@@ -25,7 +25,7 @@ import Stats from './components/stats/stats';
 import Update from './components/update';
 
 // Goals Pages
-// import Goals from './components/goals';  TODO - GOALS PAGE RE-ENABLE
+import Goals from './components/goals';
 
 // note: feature is only used as a "cookie-cutter" template
 import Feature from './components/feature';
@@ -70,7 +70,7 @@ ReactDOM.render(
         <Route path="sad" component={RequireAuth(ReasonsSad)} />
         {/* Update, Goals, Stats Routes */}
         <Route path="update" component={RequireAuth(Update)} />
-        {/*<Route path="goals" component={RequireAuth(Goals)} />*/}
+        <Route path="goals" component={RequireAuth(Goals)} />
         <Route path="stats" component={RequireAuth(Stats)} />
       </Route>
     </Router>
