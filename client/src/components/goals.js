@@ -62,29 +62,28 @@ class Goals extends Component {
       .catch(err => console.log('error submitting goal'))
   }
 
+  //adjust to also get the id from the API.
+  //save state with an array/object with ID(if wording doesn't work)
+  //
 render() {
   return (
 
     <div>
       <div>
-        <h1>Goals</h1>
-        <div> { this.state.goalList.map( (goal) => (<div> <li> {goal} </li>
-          <button value={goal} onClick={() => this.deleteGoal(goal)}> Delete </button> </div>))} </div>
+        <h1 id='goalsWord'>Goals</h1>
+        <div> { this.state.goalList.map( (goal) => (<div> <li id ='goalOutput'> {goal} </li>
+          <button id = 'goalBye' value={goal} onClick={() => this.deleteGoal(goal)}> Delete </button> </div>))} </div>
       </div>
 
-      //adjust to also get the id from the API.
-      //save state with an array/object with ID(if wording doesn't work)
-      //
-
-      <div>
-          <input
+      <div id='goalInputDiv'>
+          <input id='goalInput'
             value= {this.state.value}
             name = 'goal'
             onChange={this.handleChange.bind(this)}
           />
       </div>
 
-      <h2 onClick={() => this.handleSubmit()}> Add Goal </h2>
+      <h2 id ='goalsWord'onClick={() => this.handleSubmit()}> Add Goal </h2>
     </div>
       );
     }
