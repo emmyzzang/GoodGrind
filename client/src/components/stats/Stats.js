@@ -22,9 +22,9 @@ class Stats extends Component {
     return this.state.feelings !== nextState.feelings;
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.reasons !== nextState.reasons;
-  }
+  // shouldComponentUpdate(nextProps, nextState) {
+  //   return this.state.reasons !== nextState.reasons;
+  // }
 
   getFeelings = (email) => {
       API.getFeelings(email)
@@ -43,12 +43,15 @@ class Stats extends Component {
               // need to construct a bar chart by building a data model (from online example)
               // a: is respect to the X-Axis (Reason Fieldname)
               // b: is respect to the Y-Axis (Count)
-              temp["a"] = new Date(res.data[i].createdAt);
-              temp["b"] = Number(res.data[i].feeling);
+              temp['a'] = new Date(res.data[i].createdAt);
+              temp['b'] = Number(res.data[i].feeling);
               feelingArray.push(temp);
             }
             console.log('feelingArray: ' + JSON.stringify(feelingArray));
-            this.setState({ feelings: feelingArray }, function () {console.log(this.state.feelings)})
+            // var JSONifyIt = JSON.stringify(feelingArray);
+            var another = JSON.stringify(feelingArray);
+
+            this.setState({ feelings: feelingArray });
           }
       )
         .catch(err => console.log(err));
@@ -66,7 +69,7 @@ class Stats extends Component {
 
          console.log('Reasons Data: ' + dataArray);
 
-         this.setState({ reasons: dataArray }, function() {console.log(this.state.reasons)})
+         this.setState({ reasons: dataArray });
          })
        };
 
@@ -83,9 +86,7 @@ class Stats extends Component {
         >
             <VictoryLine
               style={{
-                data: {stroke: "#80cbc4",
-
-                        }
+                data: {stroke: "#80cbc4"}
               }}
 
               data={this.state.feelings}
@@ -96,7 +97,6 @@ class Stats extends Component {
             <VictoryScatter data={this.state.feelings}
             x="a"
             y="b"
-                size={3}
                 style={{ data: { fill: "#80cbc4"} }}
             />
 
@@ -111,9 +111,6 @@ class Stats extends Component {
 
           </VictoryChart>
       </div>
-
-
-
     );
   }
 }
