@@ -28,6 +28,7 @@ export function signinUser({email, password}) {
         // - Save the JWT token
         // localStorage is provided natively...don't need import
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('email', email);
 
         // - redirect to the route '/feature'
         browserHistory.push('/dashboard');
@@ -50,6 +51,8 @@ export function signupUser({ email, password }) {
       .then(response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('email', email);
+
         browserHistory.push('/dashboard');
       })
       .catch( error => dispatch(authError(error.response.data.error)));

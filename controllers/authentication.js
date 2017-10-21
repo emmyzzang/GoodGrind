@@ -42,9 +42,6 @@ exports.signup = function(req, res, next) {
     // If a user with email does NOT exist, create and save user record
     // db.user.create Saves the record to the DB.
     db.user.create({
-      firstname: req.body.firstname,
-      lastname: req.body.lastname,
-      username: req.body.username,
       email: req.body.email,
       password: generateHash(req.body.password)
     }).then(function(user) {
