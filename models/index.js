@@ -32,5 +32,12 @@ Object.keys(db).forEach(function(modelName) {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+// JOIN TABLE - describes table relationship
+db.feeling.hasOne(db.reason);
+db.reason.belongsTo(db.feeling);
+
+db.user.hasMany(db.feeling);
+db.feeling.belongsTo(db.user);
+
 
 module.exports = db;

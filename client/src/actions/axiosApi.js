@@ -1,16 +1,22 @@
 import axios from "axios";
 
 export default {
-  // Gets all books
-  // getBooks: function() {
-  //   return axios.get("/api/books");
-  // },
-  // Gets the book with the given id
-  getFeelings: function() {
-    return axios.get("http://127.0.0.1:3000/api/feelings/");
+  // Frontend is doing an http request via axios to the backend server.
+  // It passes email such that you can get user's data.
+  getFeelings: function(email) {
+    console.log('frontend - email: ' + email);
+    return axios.get("http://127.0.0.1:3000/api/feelings/",
+          {
+            params: { email: email }
+          }
+        );
   },
-  getReasons: function() {
-    return axios.get("http://127.0.0.1:3000/api/reasons/");
+  getReasons: function(email) {
+    return axios.get("http://127.0.0.1:3000/api/reasons/",
+          {
+            params: { email: email }
+          }
+        );
   },
 
   getGoals: function() {

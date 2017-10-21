@@ -13,8 +13,9 @@ class Stats extends Component {
   };
 
   componentDidMount() {
-    this.getFeelings();
-    this.getReasons()
+    var email = localStorage.getItem('email');
+    this.getFeelings(email);
+    this.getReasons(email);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -25,8 +26,8 @@ class Stats extends Component {
     return this.state.reasons !== nextState.reasons;
   }
 
-  getFeelings = () => {
-      API.getFeelings()
+  getFeelings = (email) => {
+      API.getFeelings(email)
 
         .then( res =>
           {
@@ -46,15 +47,15 @@ class Stats extends Component {
               temp["b"] = Number(res.data[i].feeling);
               feelingArray.push(temp);
             }
-
+            console.log('feelingArray: ' + JSON.stringify(feelingArray));
             this.setState({ feelings: feelingArray }, function () {console.log(this.state.feelings)})
           }
       )
         .catch(err => console.log(err));
    };
 
-   getReasons = () => {
-     API.getReasons()
+   getReasons = (email) => {
+     API.getReasons(email)
        .then( res =>
        {
          let dataArray = []
@@ -63,7 +64,7 @@ class Stats extends Component {
            dataArray.push(res.data[i].reasonList)
          }
 
-         console.log('Reasons Data: ' +dataArray);
+         console.log('Reasons Data: ' + dataArray);
 
          this.setState({ reasons: dataArray }, function() {console.log(this.state.reasons)})
          })
@@ -111,26 +112,7 @@ class Stats extends Component {
           </VictoryChart>
       </div>
 
-    // TODO - Fix a lot of shit. Note to self: stop being a noob scrub with state.
-    //   <div>
-    //    <VictoryChart height={400} width={400}
-    //      domainPadding={{x: 50, y: [0, 20]}}
-    //      scale={{x: "time"}}
-    //    >
-    //      <VictoryBar
-    //        dataComponent={
-    //          <Bar events={{ onMouseOver: handleMouseOver }}/>
-    //        }
-    //        style={this.state.style}
-    //        data={[
-    //          {x: new Date(1986, 1, 1), y: 2},
-    //          {x: new Date(1996, 1, 1), y: 3},
-    //          {x: new Date(2006, 1, 1), y: 5},
-    //          {x: new Date(2016, 1, 1), y: 4}
-    //        ]}
-    //      />
-    //    </VictoryChart>
-    //  </div>
+
 
     );
   }

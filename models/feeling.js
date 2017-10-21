@@ -1,8 +1,6 @@
-var Reasons = require("./reasons.js");
-
 module.exports = function(sequelize, DataTypes) {
-  var Feelings = sequelize.define("feelings", {
-    feelingId: {
+  var Feeling = sequelize.define("feeling", {
+    id: {
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
@@ -17,7 +15,8 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
-  return Feelings;
-  Feelings.hasMany(Reasons,{as: 'reasonList', foreignKey: 'feelingId'})
+
+
+  return Feeling;
 
 };

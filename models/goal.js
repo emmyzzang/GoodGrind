@@ -1,8 +1,6 @@
-
-
 module.exports = function(sequelize, DataTypes) {
-  var Goals = sequelize.define("goals", {
-    goalId: {
+  var Goal = sequelize.define("goal", {
+    id: {
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
@@ -17,6 +15,6 @@ module.exports = function(sequelize, DataTypes) {
     },
   });
 
-  return Goals;
+  return Goal;
 
 };
