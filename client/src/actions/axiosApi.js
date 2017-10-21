@@ -19,8 +19,12 @@ export default {
         );
   },
 
-  getGoals: function() {
-    return axios.get("http://127.0.0.1:3000/api/goals");
+  getGoals: function(email) {
+    return axios.get("http://127.0.0.1:3000/api/goals",
+      {
+        params: { email: email }
+      }
+    );
   },
   // Deletes the book with the given id
   deleteGoal: function(goal) {

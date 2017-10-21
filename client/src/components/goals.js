@@ -13,15 +13,16 @@ class Goals extends Component {
   // this.handleChange = this.handleChange.bind(this);
   // this.handleSubmit = this.handleSubmit.bind(this);
 
-
-    // When the component mounts, load all books and save them to this.state.books
   componentWillMount() {
     this.loadGoals();
   }
 
-    // Loads all books  and sets them to this.state.books
+
   loadGoals = () => {
-    API.getGoals()
+
+    var email = localStorage.getItem('email');
+
+    API.getGoals(email)
       .then(res => {
 
         let goalListInFunction = []
@@ -34,19 +35,17 @@ class Goals extends Component {
       .catch(err => console.log(err));
   };
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.goalList !== nextState.goalList;
+  ComponentDidUpdate(nextProps, nextState) {
+      this.state.goalList !== nextState.goalList;
+      this.state.goal !== nextState.goal;
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    return this.state.goal !== nextState.goal;
-  }
 
-  deleteGoal = goal => {
-    API.deleteGoal(goal)
-      .then(res => this.loadBooks())
-      .catch(err => console.log(err));
-  };
+  // deleteGoal = goal => {
+  //   API.deleteGoal(goal)
+  //     .then(res => this.loadBooks())
+  //     .catch(err => console.log(err));
+  // };
 
   handleChange(event) {
     this.setState({
@@ -54,13 +53,27 @@ class Goals extends Component {
     });
   };
 
+  // .then(function(res){
+  //   localStorage.setItem('feelingId',res.data.id);
+  //   console.log(res);
+  // })
+
   handleSubmit() {
       API.saveGoals({
-        goal: this.state.goal
+        goal: this.state.goal,
+        email: localStorage.getItem('email')
       })
-      .then(res => console.log('goal submited'))
-      .catch(err => console.log('error submitting goal'))
-  }
+      .then(res =>{
+
+          let goalListInFunction = []
+
+          for(var i = 0; i < res.data.length; i++) {
+            goalListInFunction.push(res.data[i].goal)
+          }
+            this.setState({goalList: this.state.goalList.concat(goalListInFunction)})
+        })
+        .catch(err => console.log('error submitting goal'))
+      }
 
   //adjust to also get the id from the API.
   //save state with an array/object with ID(if wording doesn't work)

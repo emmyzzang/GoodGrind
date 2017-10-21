@@ -55,13 +55,18 @@ const requireSignin = passport.authenticate('local', { session: false });
   });
 
 // TODO - Figure out precisely how this works on the frontend
-  router.get('/api/goals', function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    // console.log('GET happened!???');
-    db.goal.findAll({}).then(function(data) {
+
+router.get('/api/goals', function(req, res) {
+  var email = req.query.email;
+  db.user.findOne({where: {email: email}}).then(function(data) {
+    // Db request using sequelize to get user id. The user id is passed to find feelings for a specific user.
+    var userId = data.id;
+    db.goal.findAll({where: {userId: userId}}).then(function(data) {
+      console.log('Goals found from DB:' + data);
       res.json(data);
     });
   });
+})
 
 // Post Routes
 ////////////////////////////////////////////
@@ -69,7 +74,6 @@ const requireSignin = passport.authenticate('local', { session: false });
   router.post('/api/feelings', function (req, res, next) {
     console.log(req.body.email);
     // console.log(res)
-
     var email = req.body.email;
     var feeling = req.body.feeling;
     // db.feeling.create is what inserts feeling into db
@@ -92,13 +96,20 @@ const requireSignin = passport.authenticate('local', { session: false });
    });
 });
 
-  router.post('/api/goals', function (req, res, next) {
-    db.goal.create({
-      goal: req.body.goal
-    }).then(function(dbgoals) {
-      res.json(dbgoals);
+ router.post('/api/goals', function (req, res, next) {
+    console.log(req.body)
+    var email = req.body.email;
+    // db.feeling.create is what inserts feeling into db
+    db.user.findOne({where: {email: email}}).then(function(data) {
+      db.goal.create({
+        goal: req.body.goal,
+        userId: data.id
+      }).then(function(dbgoals) {
+        res.json(dbgoals);
+        console.log(dbgoals + 'this is a post response')
     });
   });
+});
 
   // router.put('/api/data', function(req, res) {
   //   console.log('PUT just happened');

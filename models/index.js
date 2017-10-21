@@ -39,5 +39,8 @@ db.reason.belongsTo(db.feeling);
 db.user.hasMany(db.feeling);
 db.feeling.belongsTo(db.user);
 
+db.user.hasMany(db.goal);
+db.feeling.belongsTo(db.user);
+
 
 module.exports = db;
