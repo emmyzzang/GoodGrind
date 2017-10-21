@@ -27,9 +27,17 @@ export default {
     );
   },
   // Deletes the book with the given id
-  deleteGoal: function(goal) {
-    return axios.delete("http://127.0.0.1:3000/api/goals", goal);
-  },
+  deleteGoal: function(goal, email) {
+    console.log(goal)
+    console.log(email)
+    console.log('this is axios')
+    return axios.delete("http://127.0.0.1:3000/api/goals", {
+      params: {
+        goal: goal,
+        email: email
+      }
+  })
+},
   saveReason: function(reasonList) {
     return axios.post("http://127.0.0.1:3000/api/reasons", reasonList);
   },

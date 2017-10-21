@@ -116,11 +116,18 @@ router.get('/api/goals', function(req, res) {
   //   res.json('put just happened - this is where results of the db will be');
   // });
 
-  router.delete('/api/goals', function(req, res) {
-    db.goal.destroy({
-      goal: req.body.goal
-    })
-    res.json('delete just happened - this can return a boolean of successful delete or not');
-  });
+  router.delete('/api/goals', function(req, res, next) {
+    // var email = req.body.email;
+    // console.log(req)
+    console.log(req.query)
+    // db.feeling.create is what inserts feeling into db
+    // db.user.findOne({where: {email: email}}).then(function(data) {
+    //   db.goal.destroy({
+    //     goal: req.body.goal,
+    //     userId: data.id
+    //   })
+    // res.json('delete just happened - this can return a boolean of successful delete or not');
+  // });
+})
 
 module.exports = router

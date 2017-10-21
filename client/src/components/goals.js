@@ -41,11 +41,14 @@ class Goals extends Component {
   }
 
 
-  // deleteGoal = goal => {
-  //   API.deleteGoal(goal)
-  //     .then(res => this.loadBooks())
-  //     .catch(err => console.log(err));
-  // };
+  deleteGoal = goal => {
+
+    var email = localStorage.getItem('email');
+
+    API.deleteGoal(goal, email)
+      .then(res => console.log(res.data))
+      .catch(err => console.log(err));
+  };
 
   handleChange(event) {
     this.setState({
