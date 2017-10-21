@@ -40,8 +40,7 @@ class Signin extends Component {
 
 
     return (
-      <div>
-        <h2>Something something zen something placeholder...!</h2>
+      <div id = 'signinDiv'>
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <fieldset className="form-group">
             <label>Email:</label>
@@ -53,7 +52,7 @@ class Signin extends Component {
           </fieldset>
           <fieldset className="form-group">
             <label>Password:</label>
-            <Field
+            <Field id = 'passwordDiv'
                 name="password"
                 component={renderInput}
                 type="password"

@@ -10,17 +10,17 @@ class Navbar extends Component {
 
     if (this.props.authenticated) {
       // show a link to sign out
-      return [<li><Link to={"/dashboard"}><FontAwesome name='tachometer' />&nbsp;Dashboard</Link></li>,
-      <li key={1}><Link to={"/update"}><FontAwesome name='pencil' />&nbsp;Update</Link></li>,
-      <li key={2}><Link to={"/goals"}><FontAwesome name='rocket' />&nbsp;Goals</Link></li>,
-      <li key={3}><Link to={"/stats"}><FontAwesome name='line-chart' />&nbsp;Stats</Link></li>,
-      <li key={4}><Link to={"/signout"}><FontAwesome name='sign-out' />&nbsp;Sign Out</Link></li>
+      return [<li id = 'navbar'><Link to={"/dashboard"}><FontAwesome name='tachometer' />&nbsp;Dashboard</Link></li>,
+      <li id = 'navbar' key={1}><Link to={"/update"}><FontAwesome name='pencil' />&nbsp;Update</Link></li>,
+      <li id = 'navbar' key={2}><Link to={"/goals"}><FontAwesome name='rocket' />&nbsp;Goals</Link></li>,
+      <li id = 'navbar' key={3}><Link to={"/stats"}><FontAwesome name='line-chart' />&nbsp;Stats</Link></li>,
+      <li id = 'navbar' key={4}><Link to={"/signout"}><FontAwesome name='sign-out' />&nbsp;Sign Out</Link></li>
     ];
     } else {
       // show a link to sign in or sign up
       return [
-        <li key={1}><Link to={"/signin"}><FontAwesome name='sign-in' />&nbsp;Sign In</Link></li>,
-        <li key={2}><Link to={"/signup"}><FontAwesome name='user-plus' />&nbsp;Sign Up</Link></li>
+        <li id = 'navbar' key={1}><Link to={"/signin"}><FontAwesome name='sign-in' />&nbsp;Sign In</Link></li>,
+        <li id = 'navbar' key={2}><Link to={"/signup"}><FontAwesome name='user-plus' />&nbsp;Sign Up</Link></li>
       ];
 
     }
@@ -30,7 +30,7 @@ class Navbar extends Component {
   render() {
     return (
       <nav className="navbar navbar-light">
-        <div className="good">GOOD</div>&nbsp;<div className="grind">GRIND</div><br /><br /><br />
+        <div className="good"><h1 id='goodname'>GOOD</h1><h1 id='grindname'>GRIND</h1></div> <br> </br>
         <hr />
 
         <ul className="nav navbar-nav">

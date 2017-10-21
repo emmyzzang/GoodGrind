@@ -16,7 +16,8 @@ render() {
       <div className='faces'>
 
         <ul id = 'faceList'>
-          <li className = 'face' >
+
+          <li className = 'faceHappy' >
             <Link to="/happy">
             <FontAwesome name='smile-o'
               onClick={(event) => {UpdateFeelings('+1');}
@@ -39,6 +40,7 @@ render() {
                 }/>
             </Link>
           </li>
+
         </ul>
       </div>
     </div>
