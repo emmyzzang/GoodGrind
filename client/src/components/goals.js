@@ -65,11 +65,11 @@ class Goals extends Component {
       })
       .then(res =>{
 
-          let goalListInFunction = []
+        console.log(res.data.goal);
 
-          for(var i = 0; i < res.data.length; i++) {
-            goalListInFunction.push(res.data[i].goal)
-          }
+          // let var addToGoalList = data.goal
+
+          let goalListInFunction = [res.data.goal]
             this.setState({goalList: this.state.goalList.concat(goalListInFunction)})
         })
         .catch(err => console.log('error submitting goal'))
