@@ -6,7 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.INTEGER
     },
     feeling: {
-      type: DataTypes.ENUM('-1','0','+1'),
+      type: DataTypes.ENUM('-1','0','1'),
       defaultValue:'0'
     },
     createdAt: {
