@@ -127,7 +127,7 @@ router.get('/api/goals', function(req, res) {
           userId: data.id
         }
       })
-    res.json('delete just happened - this can return a boolean of successful delete or not');
+      console.log("Item has been deleted")
   });
 })
 

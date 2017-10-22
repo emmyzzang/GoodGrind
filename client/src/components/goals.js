@@ -30,7 +30,7 @@ class Goals extends Component {
         for(var i = 0; i < res.data.length; i++) {
           goalListInFunction.push(res.data[i].goal)
         }
-        this.setState({goalList: this.state.goalList.concat(goalListInFunction)})
+        this.setState({goalList: this.state.goalList = goalListInFunction})
       })
       .catch(err => console.log(err));
   };
@@ -43,10 +43,12 @@ class Goals extends Component {
 
   deleteGoal = goal => {
 
+    var load = this.loadGoals()
+
     var email = localStorage.getItem('email');
 
-    API.deleteGoal(goal, email)
-      .then(res => console.log(res.data))
+    API.deleteGoal(goal, email, load)
+      .then(load)
       .catch(err => console.log(err));
   };
 
