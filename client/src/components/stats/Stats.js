@@ -7,15 +7,15 @@ import { VictoryChart, VictoryStack, VictoryTheme, VictoryBar, VictoryLabel, Vic
 import API from "../../actions/axiosApi.js";
 
 
-const myDataset = [
-  [
-      {x: "New Opportunities", y: 1},
-      {x: "meh", y: 2},
-      {x: "Boss", y: 3},
-      {x: "Test", y: 2},
-      {x: "Incoming", y: 1}
-  ]
-];
+// const myDataset = [
+//   [
+//       {x: "New Opportunities", y: 1},
+//       {x: "meh", y: 2},
+//       {x: "Boss", y: 3},
+//       {x: "Test", y: 2},
+//       {x: "Incoming", y: 1}
+//   ]
+// ];
 
 
 class Stats extends Component {
@@ -206,11 +206,14 @@ class Stats extends Component {
           <h1>Positive Chart</h1>
                     <VictoryChart
             theme={VictoryTheme.material}
-            domainPadding={10}
+            domainPadding={20}
+            width={650} height={400}
           >
           {
             dataset.map((data, i) => {
-              return <VictoryBar data={data} key={i-1}/>;
+              return <VictoryBar data={data} key={i-1}
+              style={{ data: { fill: "#80cbc4"} }}
+              />;
             })
           }
 
