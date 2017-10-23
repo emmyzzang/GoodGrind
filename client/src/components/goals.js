@@ -48,7 +48,7 @@ class Goals extends Component {
     var email = localStorage.getItem('email');
 
     API.deleteGoal(goal, email, load)
-      .then(load)
+      .then(res => console.log('delete please') )
       .catch(err => console.log(err));
   };
 
@@ -58,10 +58,7 @@ class Goals extends Component {
     });
   };
 
-  // .then(function(res){
-  //   localStorage.setItem('feelingId',res.data.id);
-  //   console.log(res);
-  // })
+
 
   handleSubmit() {
       API.saveGoals({

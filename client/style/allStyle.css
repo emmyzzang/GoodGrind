@@ -46,7 +46,7 @@ h2 {
 }
 
 h2:active{
-  color: grey;
+  color: #80cbc4;
 }
 
 .good {
@@ -297,4 +297,19 @@ body {
   float: right;
   line-height: 150%;
   margin-right: 30%;
+}
+
+
+/*////updateHappy///*/
+
+.header{
+  margin: 10px 0;
+  padding: 15px;
+  box-shadow: 0 0 2px 1px #333;
+  cursor: pointer;
+}
+
+.active{
+  color: #fff;
+  background-color: #333;
 }

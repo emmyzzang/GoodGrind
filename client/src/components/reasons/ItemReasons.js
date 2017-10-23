@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import UpdateReasons from '../../actions/updateReasons.js';
 import { Link } from 'react-router';
-// import Item from './ItemReasons.js'
+// import Item from './renderReasons.js'
 // import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
@@ -18,7 +18,6 @@ class Item extends React.Component {
       );
     }
   }
-
 
 class ReasonsHappy extends React.Component {
   constructor(props) {
@@ -73,6 +72,12 @@ class ReasonsHappy extends React.Component {
       this.setState({reasons: newState})
     }
   }
+
+  // setActive = (item) => {
+  //   var stateless = this.state.reasons;
+  //   var index = stateless.indexOf(item)
+  //   return stateless[index]
+  // }
 
 
   render() {
