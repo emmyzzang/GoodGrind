@@ -5,7 +5,6 @@ import { VictoryChart, VictoryStack, VictoryTheme, VictoryBar, VictoryLabel, Vic
   VictoryVoronoiContainer, VictoryGroup, VictoryTooltip, VictoryZoomContainer,
   VictoryBrushContainer} from 'victory';
 import API from "../../actions/axiosApi.js";
-// import RadarGraph from "./RadarGraph";
 
 
 const myDataset = [
