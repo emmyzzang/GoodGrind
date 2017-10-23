@@ -164,6 +164,8 @@ class Stats extends Component {
 
 
   render() {
+    const styles = this.getStyles();
+
     // const dataset = this.transformData(this.state.reasons);
     const dataset = this.state.positiveReasons || [];
 
@@ -204,10 +206,10 @@ class Stats extends Component {
           </VictoryChart>
 
           <h1>Positive Chart</h1>
-                    <VictoryChart
+          <VictoryChart
             theme={VictoryTheme.material}
             domainPadding={20}
-            width={650} height={400}
+            width={700} height={400}
           >
           {
             dataset.map((data, i) => {
@@ -216,12 +218,33 @@ class Stats extends Component {
               />;
             })
           }
-
+          <VictoryAxis
+            style={styles.custom} />
+            <VictoryAxis dependentAxis
+              orientation="left"
+              standalone={false}
+              style={styles.custom}
+            />
           </VictoryChart>
 
       </div>
     );
   }
+
+
+  getStyles() {
+      return {
+        // INDEPENDENT AXIS
+        custom: {
+          tickLabels: {
+            fill: "black",
+            fontFamily: "inherit",
+            fontSize: 8
+          }
+        },
+      };
+    }
+
 }
 
 // Working Backup
