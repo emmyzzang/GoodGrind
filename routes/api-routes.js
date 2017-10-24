@@ -179,6 +179,8 @@ router.post('/api/goals', function (req, res, next) {
           goal: req.query.goal,
           userId: data.id
         }
+      }).then(data => {
+        res.send('done!');
       })
       console.log("Item has been deleted")
   });

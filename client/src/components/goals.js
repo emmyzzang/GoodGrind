@@ -19,7 +19,7 @@ class Goals extends Component {
 
 
   loadGoals = () => {
-
+    console.log('sfdgfdg')
     var email = localStorage.getItem('email');
 
     API.getGoals(email)
@@ -43,12 +43,10 @@ class Goals extends Component {
 
   deleteGoal = goal => {
 
-    var load = this.loadGoals()
-
     var email = localStorage.getItem('email');
 
-    API.deleteGoal(goal, email, load)
-      .then(res => console.log('delete please') )
+    API.deleteGoal(goal, email)
+      .then(res => this.loadGoals() )
       .catch(err => console.log(err));
   };
 
@@ -57,7 +55,6 @@ class Goals extends Component {
       [event.target.name]: event.target.value
     });
   };
-
 
 
   handleSubmit() {
@@ -69,17 +66,12 @@ class Goals extends Component {
 
         console.log(res.data.goal);
 
-          // let var addToGoalList = data.goal
-
           let goalListInFunction = [res.data.goal]
             this.setState({goalList: this.state.goalList.concat(goalListInFunction)})
         })
         .catch(err => console.log('error submitting goal'))
       }
 
-  //adjust to also get the id from the API.
-  //save state with an array/object with ID(if wording doesn't work)
-  //
 render() {
   return (
 
