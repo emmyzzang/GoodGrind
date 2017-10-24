@@ -58,7 +58,7 @@ class Signin extends Component {
           {this.renderAlert()}
           <button action="submit" className="btn btn-primary">Sign in</button>
         </form>
-        <p class="message">Not Registered?<Link to={"/signup"}>Create An Account</Link></p>
+        <p class="message">Not Registered?<Link to={"/signup"}> Create An Account</Link></p>
       </div>
     );
   }
