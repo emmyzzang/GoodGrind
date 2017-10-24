@@ -23,6 +23,7 @@ class ReasonsHappy extends React.Component {
     super(props);
     this.state = {
       reasons: [],
+      redirect: false,
       items: [
         {
           text: "Great Culture",
@@ -54,6 +55,15 @@ class ReasonsHappy extends React.Component {
         },
       ]
     }
+  }
+
+  handleOnClick = () => {
+    // some action...
+    // then redirect
+
+    UpdateReasons(this.state.reasons)
+    window.location.assign("/stats");
+    // this.setState({redirect: true});
   }
 
   onItemClick = (id) => {
@@ -93,9 +103,7 @@ class ReasonsHappy extends React.Component {
         <br></br>
 
         <p id='submitP'>
-          <Link to="/stats">
-            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {UpdateReasons(this.state.reasons)}}/>
-          </Link>
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={this.handleOnClick} />
         </p>
 
       </div>

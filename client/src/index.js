@@ -18,7 +18,6 @@ import ReasonsNeutral from './components/reasons/ReasonsNeutral';
 import ReasonsSad from './components/reasons/ReasonsSad';
 
 // Stats Pages
-import Linegraph from './components/stats/Linegraph';
 import Stats from './components/stats/stats';
 
 // Update Page

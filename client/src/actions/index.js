@@ -6,11 +6,11 @@ import {
   AUTH_ERROR,
   FETCH_MESSAGE
 } from './types';
-// action creator always creates an object.
-// w/ reduxThunk...it will return a function instead of an object.
-// this function will be used to get direct access to dispatch function
-// which magically forwards to all the actions
 
+// An Action Creator always creates an object.
+// with reduxThunk, it will return a function instead of an object.
+// this function will be used to get ~direct access~ to dispatch function
+// which magically forwards to all the actions
 
 const ROOT_URL = 'http://localhost:3000'; // Backend Server IP Here
 

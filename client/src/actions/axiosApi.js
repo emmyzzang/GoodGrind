@@ -11,14 +11,38 @@ export default {
           }
         );
   },
-  getReasons: function(email) {
+  getReasons: function(email, feeling) {
     return axios.get("http://127.0.0.1:3000/api/reasons/",
           {
-            params: { email: email }
+            params: { email: email,
+                      feeling: feeling}
           }
         );
   },
-
+  getPositiveReasons: function(email) {
+    return axios.get("http://127.0.0.1:3000/api/reasons/",
+          {
+            params: { email: email,
+                      feeling: 1}
+          }
+        );
+  },
+  getNeutralReasons: function(email) {
+    return axios.get("http://127.0.0.1:3000/api/reasons/",
+          {
+            params: { email: email,
+                      feeling: 0}
+          }
+        );
+  },
+  getSadReasons: function(email) {
+    return axios.get("http://127.0.0.1:3000/api/reasons/",
+          {
+            params: { email: email,
+                      feeling: -1}
+          }
+        );
+  },
   getGoals: function(email) {
     return axios.get("http://127.0.0.1:3000/api/goals",
       {

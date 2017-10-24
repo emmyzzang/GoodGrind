@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
-
+// TEST GIT PUSH FOR TROUBLESHOOTING //
 // AUTHENTICATION ////////////////////////////////////////////
 const Authentication = require('../controllers/authentication');
 const passportService = require('../services/passport');
@@ -29,28 +29,81 @@ const requireSignin = passport.authenticate('local', { session: false });
   ///////////////////////////////////////////
   router.get('/api/feelings', function(req, res) {
 
-    console.log('GET /api/feelings');
+    console.log('[GET] /api/feelings');
     var email = req.query.email; // the query is a parameter that you pass into an http request
-    console.log('email: ' + email);
+    console.log('[GET] /api/feelings - email: ' + email);
 
     // The backend server is responsible for connecting to the db to retreive user-specific feelings
-    db.user.findOne({where: {email: email}}).then(function(data) {
-      // Db request using sequelize to get user id. The user id is passed to find feelings for a specific user.
-      var userId = data.id;
-      db.feeling.findAll({where: {userId: userId}}).then(function(data) {
-        console.log('Feelings found from DB:' + data);
-        res.json(data);
-      });
+    db.user.findOne({
+      where: {email: email},
+      include: [
+        {
+          model: db.feeling
+        }
+      ]
+    }).then(function(data) {
+        console.log('[GET] /api/feelings - Feelings found from DB:' + data.feelings);
+        res.json(data.feelings);
     });
   });
 
-  // TODO - we need to figure out the structure of the second chart to do this
   router.get('/api/reasons', function(req, res) {
-    // findAll returns all entries for a table when used with no options
-    console.log('GET /api/reasons');
+    console.log('[GET] /api/reasons');
+    var email = req.query.email;
+    var feeling = req.query.feeling; // Pass 1 0 -1
+    console.log('[GET] /api/reasons - email:' + email);
 
-    db.reason.findAll({}).then(function(data) {
-      res.json(data);
+    db.user.findOne({
+      where: {email},
+      include: [
+        {
+          where: {feeling: feeling},
+          model: db.feeling,
+          include: [
+            {
+              model: db.reason
+            }
+          ]
+        }
+      ]
+    }).then(user => {
+        console.log('[GET] /api/reasons - Results: ' + JSON.stringify(user));
+
+        // Mapping Example:
+        // const feelings = user.feelings.map(feeling => {
+        //   return Object.assign(
+        //     {},
+        //     {
+        //       reason: feeling.reason
+        //     }
+        //     )
+        // });
+
+        /*
+        [
+            {x: "New Opportunities", y: 1},
+            {x: "meh", y: 2},
+            {x: "Boss", y: 3},
+            {x: "Test", y: 2},
+            {x: "Incoming", y: 1}
+        ]
+        */
+
+        const reasons = [];
+
+        user.feelings.map(feeling=> {
+          // construct reasons from result set.
+
+          if(feeling.reason){
+            reasons.push(feeling.reason.reasonList);
+          }
+
+          return;
+        });
+
+        var result = count(reasons);
+        console.log('[GET] /api/reasons - Formatted Result: ' + JSON.stringify(result));
+        res.json(result)
     });
   });
 
@@ -129,6 +182,42 @@ router.get('/api/goals', function(req, res) {
       })
       console.log("Item has been deleted")
   });
-})
+});
+
+// Used to count occurences for [GET] - /api/reasons
+function count(arr) {
+    var a = [], b = [], prev;
+    var result = [];
+
+
+    arr.sort();
+    for ( var i = 0; i < arr.length; i++ ) {
+        if ( arr[i] !== prev ) {
+            a.push(arr[i]);
+            b.push(1);
+        } else {
+            b[b.length-1]++;
+        }
+        prev = arr[i];
+    }
+
+    for ( var j = 0; j < a.length; j++ ) {
+        var jsonObject = {};
+        var fieldName = a[j];
+        var occurences = b[j];
+
+        jsonObject = {
+          x: fieldName,
+          y: occurences
+        }
+        result.push(jsonObject);
+    }
+    // var containerArray = [];
+    // containerArray.push(result);
+
+    return result;
+}
+
+
 
 module.exports = router

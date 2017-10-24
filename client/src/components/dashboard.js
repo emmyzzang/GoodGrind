@@ -17,7 +17,7 @@ render() {
           <li className = 'face' >
             <Link to="/happy">
             <FontAwesome name='smile-o'
-              onClick={(event) => {UpdateFeelings('+1');}
+              onClick={(event) => {UpdateFeelings('1');}
               }/>
             </Link>
           </li>

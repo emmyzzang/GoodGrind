@@ -72,6 +72,15 @@ class ReasonsNeutral extends React.Component {
     }
   }
 
+  handleOnClick = () => {
+    // some action...
+    // then redirect
+
+    UpdateReasons(this.state.reasons)
+    window.location.assign("/stats");
+    // this.setState({redirect: true});
+  }
+
 
   render() {
     const { items, reasons } = this.state;
@@ -94,9 +103,7 @@ class ReasonsNeutral extends React.Component {
         <br></br>
 
         <p id='submitP'>
-          <Link to="/stats">
-            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {UpdateReasons(this.state.reasons)}}/>
-          </Link>
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={this.handleOnClick} />
         </p>
 
       </div>
