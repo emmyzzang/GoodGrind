@@ -28,14 +28,15 @@ class Stats extends Component {
     console.log('componentDidMount executed');
     var email = localStorage.getItem('email');
     this.getFeelings(email);
-    this.getPositiveReasons(email);
+    this.getAllReasons(email);
     // this.transformData(this.state.reasons);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.feelings !== nextState.feelings
     || this.state.positiveReasons !== nextState.positiveReasons
-    || this.state.positiveReasonsFieldName !== nextState.positiveReasonsFieldName;
+    || this.state.neutralReasons !== nextState.neutralReasons
+    || this.state.sadReasons !== nextState.sadReasons;
   }
 
   getFeelings = (email) => {
@@ -69,35 +70,33 @@ class Stats extends Component {
         .catch(err => console.log(err));
    };
 
-   getReasons = (email) => {
-     API.getReasons(email)
-       .then( res =>
-       {
-         let dataArray = []
+  //  getReasons = (email) => {
+  //    API.getReasons(email)
+  //      .then( res =>
+  //      {
+  //        let dataArray = []
+   //
+  //        for(var i = 0; i < res.data.length; i++) {
+  //          dataArray.push(res.data[i].reasonList)
+  //        }
+   //
+  //        console.log('Reasons Data: ' + dataArray);
+   //
+  //        this.setState({ reasons: dataArray });
+  //        })
+  //      };
 
-         for(var i = 0; i < res.data.length; i++) {
-           dataArray.push(res.data[i].reasonList)
-         }
-
-         console.log('Reasons Data: ' + dataArray);
-
-         this.setState({ reasons: dataArray });
-         })
-       };
-
-       getPositiveReasons = (email) => {
-         console.log('getPositiveReasons execute');
-         API.getPositiveReasons(email)
+       getAllReasons = (email) => {
+         console.log('getAllReasons execute');
+         // Get Happy Reasons
+         API.getReasons(email, 1)
            .then( res =>
            {
-
              // Populate Positive Reasons
              var positiveReasons = [];
              positiveReasons.push(res.data);
 
              positiveReasons = this.transformData(positiveReasons);
-
-
 
              // Populate Field Names of Positive Reasons
              var positiveReasonsFieldName = [];
@@ -105,46 +104,54 @@ class Stats extends Component {
                positiveReasonsFieldName.push(res.data[i].x);
              }
 
-
              console.log('Positive Reasons Data: ' + JSON.stringify(positiveReasons));
              console.log('Positive Reasons Field Name' + JSON.stringify(positiveReasonsFieldName));
              this.setState({ positiveReasons: positiveReasons});
-            this.setState({positiveReasonsFieldName: positiveReasonsFieldName});
+             this.setState({positiveReasonsFieldName: positiveReasonsFieldName});
              })
+           // Get Neutral Reasons
+           API.getReasons(email, 0)
+             .then( neutralRes =>
+             {
+               // Populate Positive Reasons
+               var neutralReasons = [];
+               neutralReasons.push(neutralRes.data);
+
+               neutralReasons = this.transformData(neutralReasons);
+
+               // Populate Field Names of neutral Reasons
+               var neutralReasonsFieldName = [];
+               for(var i = 0; i < neutralRes.data.length; i++) {
+                 neutralReasonsFieldName.push(neutralRes.data[i].x);
+               }
+
+               console.log(' Reasons Data: ' + JSON.stringify(neutralReasons));
+               console.log('neutral Reasons Field Name' + JSON.stringify(neutralReasonsFieldName));
+               this.setState({neutralReasons: neutralReasons});
+               this.setState({neutralReasonsFieldName: neutralReasonsFieldName});
+               })
+             // Get Sad Reasons
+             API.getReasons(email, -1)
+               .then( sadRes =>
+               {
+                 // Populate Positive Reasons
+                 var sadReasons = [];
+                 sadReasons.push(sadRes.data);
+
+                 sadReasons = this.transformData(sadReasons);
+
+                 // Populate Field Names of sad Reasons
+                 var sadReasonsFieldName = [];
+                 for(var i = 0; i < sadRes.data.length; i++) {
+                   sadReasonsFieldName.push(sadRes.data[i].x);
+                 }
+
+                 console.log('Sad Reasons Data: ' + JSON.stringify(sadReasons));
+                 console.log('Sad Reasons Field Name' + JSON.stringify(sadReasonsFieldName));
+                 this.setState({ sadReasons: sadReasons});
+                 this.setState({sadReasonsFieldName: sadReasonsFieldName});
+                 })
            };
-
-           getNeutralReasons = (email) => {
-             API.getNeutralReasons(email)
-               .then( res =>
-               {
-                 let dataArray = []
-
-                 for(var i = 0; i < res.data.length; i++) {
-                   dataArray.push(res.data[i].reasonList)
-                 }
-
-                 console.log('Neutral Reasons Data: ' + dataArray);
-
-                 this.setState({ reasons: dataArray });
-                 })
-               };
-
-           getSadReasons = (email) => {
-             API.getSadReasons(email)
-               .then( res =>
-               {
-                 let dataArray = []
-
-                 for(var i = 0; i < res.data.length; i++) {
-                   dataArray.push(res.data[i].reasonList)
-                 }
-
-                 console.log('Sad Reasons Data: ' + dataArray);
-
-                 this.setState({ reasons: dataArray });
-                 })
-               };
-
 
        // This is an example of a function you might use to transform your data to make 100% data
     transformData(dataset) {
@@ -167,7 +174,9 @@ class Stats extends Component {
     const styles = this.getStyles();
 
     // const dataset = this.transformData(this.state.reasons);
-    const dataset = this.state.positiveReasons || [];
+    const positiveDataset = this.state.positiveReasons || [];
+    const neutralDataset = this.state.neutralReasons || [];
+    const sadDataset = this.state.sadReasons || [];
 
     return (
       <div>
@@ -212,9 +221,9 @@ class Stats extends Component {
             width={700} height={400}
           >
           {
-            dataset.map((data, i) => {
+            positiveDataset.map((data, i) => {
               return <VictoryBar data={data} key={i-1}
-              style={{ data: { fill: "#80cbc4"} }}
+              style={{ data: { fill: "#80cbc4", strokeWidth: 5 } }}
               />;
             })
           }
@@ -227,6 +236,50 @@ class Stats extends Component {
             />
           </VictoryChart>
 
+
+          <h1>Neutral Chart</h1>
+          <VictoryChart
+            theme={VictoryTheme.material}
+            domainPadding={20}
+            width={700} height={400}
+          >
+          {
+            neutralDataset.map((data, i) => {
+              return <VictoryBar data={data} key={i-1}
+              style={{ data: { fill: "#80cbc4", strokeWidth: 5 } }}
+              />;
+            })
+          }
+          <VictoryAxis
+            style={styles.custom} />
+            <VictoryAxis dependentAxis
+              orientation="left"
+              standalone={false}
+              style={styles.custom}
+            />
+          </VictoryChart>
+
+          <h1>Sad Chart</h1>
+          <VictoryChart
+            theme={VictoryTheme.material}
+            domainPadding={20}
+            width={700} height={400}
+          >
+          {
+            sadDataset.map((data, i) => {
+              return <VictoryBar data={data} key={i-1}
+              style={{ data: { fill: "#80cbc4", strokeWidth: 5 } }}
+              />;
+            })
+          }
+          <VictoryAxis
+            style={styles.custom} />
+            <VictoryAxis dependentAxis
+              orientation="left"
+              standalone={false}
+              style={styles.custom}
+            />
+          </VictoryChart>
       </div>
     );
   }
@@ -242,6 +295,9 @@ class Stats extends Component {
             fontSize: 8
           }
         },
+        lineWidth: {
+            data: { stroke: "#e95f46", strokeWidth: 2 }
+        }
       };
     }
 

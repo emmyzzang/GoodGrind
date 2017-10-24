@@ -48,9 +48,7 @@ class ReasonsHappy extends Component {
         <br></br>
 
         <p id='submitP'>
-
             <FontAwesome name="arrow-circle-right" id="arrow" onClick={this.handleOnClick} />
-
         </p>
       </div>
     )

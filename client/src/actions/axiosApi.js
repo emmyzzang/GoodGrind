@@ -11,6 +11,14 @@ export default {
           }
         );
   },
+  getReasons: function(email, feeling) {
+    return axios.get("http://127.0.0.1:3000/api/reasons/",
+          {
+            params: { email: email,
+                      feeling: feeling}
+          }
+        );
+  },
   getPositiveReasons: function(email) {
     return axios.get("http://127.0.0.1:3000/api/reasons/",
           {
