@@ -104,18 +104,18 @@ class Stats extends Component {
                this.setState({neutralReasonsFieldName: neutralReasonsFieldName});
                })
        //====================================================================
-       ///////////////////////// Get Neutral Reasons //////////////////////
+       ///////////////////////// Get Negative Reasons //////////////////////
        //====================================================================
              API.getReasons(email, -1)
                .then( sadRes =>
                {
-                 // Populate Positive Reasons
+                 // Populate Negative Reasons
                  var sadReasons = [];
                  sadReasons.push(sadRes.data);
 
                  sadReasons = this.transformData(sadReasons);
 
-                 // Populate Field Names of sad Reasons
+                 // Populate Field Names of Negative Reasons
                  var sadReasonsFieldName = [];
                  for(var i = 0; i < sadRes.data.length; i++) {
                    sadReasonsFieldName.push(sadRes.data[i].x);
