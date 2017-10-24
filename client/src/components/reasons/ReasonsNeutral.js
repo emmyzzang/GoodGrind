@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UpdateReasons from '../../actions/updateReasons.js';
 import { Link } from 'react-router';
-// import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
 class ReasonsNeutral extends Component {
