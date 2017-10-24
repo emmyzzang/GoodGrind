@@ -60,8 +60,18 @@ class ReasonsHappy extends React.Component {
   handleOnClick = () => {
     // some action...
     // then redirect
+    var reasons = this.state.reasons
+    var items = this.state.items
+    var finalOutput = []
 
-    UpdateReasons(this.state.reasons)
+
+    for(var i = 0; i < items.length; i ++){
+      if(reasons.indexOf(items[i].id) >= 0)
+          finalOutput.push(items[i].text)
+        }
+
+
+    UpdateReasons(finalOutput)
     window.location.assign("/stats");
     // this.setState({redirect: true});
   }

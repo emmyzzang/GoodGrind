@@ -23,6 +23,7 @@ class ReasonsSad extends React.Component {
     super(props);
     this.state = {
       reasons: [],
+      redirect: false,
       items: [
         {
           text: "Great Culture",
@@ -56,6 +57,24 @@ class ReasonsSad extends React.Component {
     }
   }
 
+  handleOnClick = () => {
+    // some action...
+    // then redirect
+    var reasons = this.state.reasons
+    var items = this.state.items
+    var finalOutput = []
+
+
+    for(var i = 0; i < items.length; i ++){
+      if(reasons.indexOf(items[i].id) >= 0)
+          finalOutput.push(items[i].text)
+        }
+
+
+    UpdateReasons(finalOutput)
+    window.location.assign("/stats");
+    // this.setState({redirect: true});
+  }
 
   onItemClick = (id) => {
     var stateless = this.state.reasons;
@@ -72,14 +91,6 @@ class ReasonsSad extends React.Component {
     }
   }
 
-  handleOnClick = () => {
-    // some action...
-    // then redirect
-
-    UpdateReasons(this.state.reasons)
-    window.location.assign("/stats");
-    // this.setState({redirect: true});
-  }
 
   render() {
     const { items, reasons } = this.state;
