@@ -5,9 +5,6 @@ import * as actions from '../../actions';
 import { Link } from 'react-router';
 
 
-// <li key={2}><Link to={"/signup"}><FontAwesome name='user-plus' />&nbsp;Sign Up</Link></li>
-
-
 // renders the input
 const renderInput = field => (
   <div>
