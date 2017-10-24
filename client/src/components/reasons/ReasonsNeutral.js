@@ -1,36 +1,95 @@
 import React, { Component } from 'react';
 import UpdateReasons from '../../actions/updateReasons.js';
 import { Link } from 'react-router';
-// import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
-class ReasonsNeutral extends Component {
-  constructor() {
-    super();
-    this.state = {
-      reasons: []
+class Item extends React.Component {
+    handleClick = () => {
+      const { itemId, onClick } = this.props;
+      onClick(itemId);
+    }
+
+    render() {
+      const { text, active } = this.props;
+      return (
+        <div className={`header ${active && 'active'}`} onClick={this.handleClick}>{text}</div>
+      );
     }
   }
 
-  reply_click(clicked_value) {
-    const reasons = [];
-    reasons.push(clicked_value)
-    this.setState({
-      reasons: this.state.reasons.concat(reasons)
-    })
+
+class ReasonsNeutral extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reasons: [],
+      items: [
+        {
+          text: "Great Culture",
+          id: 1
+        },
+        {
+          text: "Flexible Managers",
+          id: 2
+        },
+        {
+          text: "Friendly Co-workers",
+          id: 3
+        },
+        {
+          text: "Upbeat Work Environment",
+          id: 4
+        },
+        {
+          text: "Work is Appreciated",
+          id: 5
+        },
+        {
+          text: "Flexible Work Hours",
+          id: 6
+        },
+        {
+          text: "New Opportunities",
+          id: 7
+        },
+      ]
+    }
   }
 
-  render() {
-    return (
-      <div className='buttonDiv {ReasonStyle}'>
 
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"long hours"}> <b> Long Hours </b> </h2>
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"under appreciated"}> <b> Under Appreciated </b> </h2>
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"bad work culture"}> <b> Bad Work Culture </b> </h2>
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"difficult boss"}> <b> Difficult Boss </b> </h2>
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"overworked"}> <b> Overworked </b> </h2>
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"underpaid"}> <b> Underpaid </b> </h2>
-        <h2 id= 'reasonsId' onClick={() => {this.reply_click("meh")}} type="button" className="btn btn-lg reason" value={"no upward mobility"}> <b> No Upward Mobility </b> </h2>
+  onItemClick = (id) => {
+    var stateless = this.state.reasons;
+
+    if(stateless.indexOf(id) == -1) {
+      const reasonsInFunc = []
+      reasonsInFunc.push(id)
+      this.setState({reasons: this.state.reasons.concat(reasonsInFunc)});
+    } else {
+      let newState = this.state.reasons
+      const index = newState.indexOf(id)
+      newState.splice(index, 1);
+      this.setState({reasons: newState})
+    }
+  }
+
+
+  render() {
+    const { items, reasons } = this.state;
+    return (
+      <div >
+        {
+          items.map((item) => {
+            return (
+              <Item
+                key={item.id}
+                text={item.text}
+                itemId={item.id}
+                onClick={this.onItemClick}
+                active={ item.id === reasons[reasons.indexOf(item.id)]}
+              />
+            )
+          })
+        }
 
         <br></br>
 
@@ -39,11 +98,13 @@ class ReasonsNeutral extends Component {
             <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {UpdateReasons(this.state.reasons)}}/>
           </Link>
         </p>
+
       </div>
-    )
+    );
   }
+
 }
 
 
 
-export default ReasonsNeutral;
+export default ReasonsNeutral
