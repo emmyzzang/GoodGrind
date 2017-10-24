@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
-
+// TEST GIT PUSH FOR TROUBLESHOOTING //
 // AUTHENTICATION ////////////////////////////////////////////
 const Authentication = require('../controllers/authentication');
 const passportService = require('../services/passport');
