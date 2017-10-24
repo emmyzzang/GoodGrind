@@ -4,7 +4,7 @@ import { reduxForm, Field } from 'redux-form';
 import * as actions from '../../actions';
 
 
-// hoisted up not to render each time from scratch in the component (which would result in loosing focus)
+// Hoisted up not to render each time from scratch in the component (which would result in loosing focus)
 const renderInput = ({ input, label, type, meta: { touched, error, warning } }) => (
   <fieldset className="form-group">
     <label htmlFor={input.name}>{label}</label>

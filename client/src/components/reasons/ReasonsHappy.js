@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UpdateReasons from '../../actions/updateReasons.js';
 import { Link, Redirect } from 'react-router';
-// import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
 class ReasonsHappy extends Component {
@@ -48,9 +47,7 @@ class ReasonsHappy extends Component {
         <br></br>
 
         <p id='submitP'>
-
             <FontAwesome name="arrow-circle-right" id="arrow" onClick={this.handleOnClick} />
-
         </p>
       </div>
     )

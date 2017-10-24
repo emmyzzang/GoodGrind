@@ -1,22 +1,10 @@
 import React, { Component } from 'react';
-import { LineChart, Line } from 'recharts';
 import { render } from 'react-dom';
 import { VictoryChart, VictoryStack, VictoryTheme, VictoryBar, VictoryLabel, VictoryAxis, VictoryLine, VictoryScatter,
   VictoryVoronoiContainer, VictoryGroup, VictoryTooltip, VictoryZoomContainer,
   VictoryBrushContainer} from 'victory';
 import API from "../../actions/axiosApi.js";
-// import RadarGraph from "./RadarGraph";
 
-
-const myDataset = [
-  [
-      {x: "New Opportunities", y: 1},
-      {x: "meh", y: 2},
-      {x: "Boss", y: 3},
-      {x: "Test", y: 2},
-      {x: "Incoming", y: 1}
-  ]
-];
 
 
 class Stats extends Component {
@@ -29,14 +17,15 @@ class Stats extends Component {
     console.log('componentDidMount executed');
     var email = localStorage.getItem('email');
     this.getFeelings(email);
-    this.getPositiveReasons(email);
+    this.getAllReasons(email);
     // this.transformData(this.state.reasons);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
     return this.state.feelings !== nextState.feelings
     || this.state.positiveReasons !== nextState.positiveReasons
-    || this.state.positiveReasonsFieldName !== nextState.positiveReasonsFieldName;
+    || this.state.neutralReasons !== nextState.neutralReasons
+    || this.state.sadReasons !== nextState.sadReasons;
   }
 
   getFeelings = (email) => {
@@ -52,16 +41,11 @@ class Stats extends Component {
               // Maps incoming data (res.data[i]) into the feelingArray
               // Data must be in the format - {a: new Date(2017-10-30T04:11:23.000Z), b: 1}
               // in order to work in victory charts
-              // TODO -
-              // need to construct a bar chart by building a data model (from online example)
-              // a: is respect to the X-Axis (Reason Fieldname)
-              // b: is respect to the Y-Axis (Count)
               temp['a'] = new Date(res.data[i].createdAt);
               temp['b'] = Number(res.data[i].feeling);
               feelingArray.push(temp);
             }
             console.log('feelingArray: ' + JSON.stringify(feelingArray));
-            // var JSONifyIt = JSON.stringify(feelingArray);
             var another = JSON.stringify(feelingArray);
 
             this.setState({ feelings: feelingArray });
@@ -70,35 +54,20 @@ class Stats extends Component {
         .catch(err => console.log(err));
    };
 
-   getReasons = (email) => {
-     API.getReasons(email)
-       .then( res =>
-       {
-         let dataArray = []
 
-         for(var i = 0; i < res.data.length; i++) {
-           dataArray.push(res.data[i].reasonList)
-         }
-
-         console.log('Reasons Data: ' + dataArray);
-
-         this.setState({ reasons: dataArray });
-         })
-       };
-
-       getPositiveReasons = (email) => {
-         console.log('getPositiveReasons execute');
-         API.getPositiveReasons(email)
+       getAllReasons = (email) => {
+         console.log('getAllReasons execute');
+        //====================================================================
+        //////////////////////// Get Positive Reasons /////////////////////
+        //====================================================================
+         API.getReasons(email, 1)
            .then( res =>
            {
-
              // Populate Positive Reasons
              var positiveReasons = [];
              positiveReasons.push(res.data);
 
              positiveReasons = this.transformData(positiveReasons);
-
-
 
              // Populate Field Names of Positive Reasons
              var positiveReasonsFieldName = [];
@@ -106,48 +75,60 @@ class Stats extends Component {
                positiveReasonsFieldName.push(res.data[i].x);
              }
 
-
              console.log('Positive Reasons Data: ' + JSON.stringify(positiveReasons));
              console.log('Positive Reasons Field Name' + JSON.stringify(positiveReasonsFieldName));
              this.setState({ positiveReasons: positiveReasons});
-            this.setState({positiveReasonsFieldName: positiveReasonsFieldName});
+             this.setState({positiveReasonsFieldName: positiveReasonsFieldName});
              })
+       //====================================================================
+       ///////////////////////// Get Neutral Reasons /////////////////////
+       //====================================================================
+           API.getReasons(email, 0)
+             .then( neutralRes =>
+             {
+               // Populate Neutral Reasons
+               var neutralReasons = [];
+               neutralReasons.push(neutralRes.data);
+
+               neutralReasons = this.transformData(neutralReasons);
+
+               // Populate Field Names of neutral Reasons
+               var neutralReasonsFieldName = [];
+               for(var i = 0; i < neutralRes.data.length; i++) {
+                 neutralReasonsFieldName.push(neutralRes.data[i].x);
+               }
+
+               console.log(' Reasons Data: ' + JSON.stringify(neutralReasons));
+               console.log('neutral Reasons Field Name' + JSON.stringify(neutralReasonsFieldName));
+               this.setState({neutralReasons: neutralReasons});
+               this.setState({neutralReasonsFieldName: neutralReasonsFieldName});
+               })
+       //====================================================================
+       ///////////////////////// Get Negative Reasons //////////////////////
+       //====================================================================
+             API.getReasons(email, -1)
+               .then( sadRes =>
+               {
+                 // Populate Negative Reasons
+                 var sadReasons = [];
+                 sadReasons.push(sadRes.data);
+
+                 sadReasons = this.transformData(sadReasons);
+
+                 // Populate Field Names of Negative Reasons
+                 var sadReasonsFieldName = [];
+                 for(var i = 0; i < sadRes.data.length; i++) {
+                   sadReasonsFieldName.push(sadRes.data[i].x);
+                 }
+
+                 console.log('Sad Reasons Data: ' + JSON.stringify(sadReasons));
+                 console.log('Sad Reasons Field Name' + JSON.stringify(sadReasonsFieldName));
+                 this.setState({ sadReasons: sadReasons});
+                 this.setState({sadReasonsFieldName: sadReasonsFieldName});
+                 })
            };
 
-           getNeutralReasons = (email) => {
-             API.getNeutralReasons(email)
-               .then( res =>
-               {
-                 let dataArray = []
-
-                 for(var i = 0; i < res.data.length; i++) {
-                   dataArray.push(res.data[i].reasonList)
-                 }
-
-                 console.log('Neutral Reasons Data: ' + dataArray);
-
-                 this.setState({ reasons: dataArray });
-                 })
-               };
-
-           getSadReasons = (email) => {
-             API.getSadReasons(email)
-               .then( res =>
-               {
-                 let dataArray = []
-
-                 for(var i = 0; i < res.data.length; i++) {
-                   dataArray.push(res.data[i].reasonList)
-                 }
-
-                 console.log('Sad Reasons Data: ' + dataArray);
-
-                 this.setState({ reasons: dataArray });
-                 })
-               };
-
-
-       // This is an example of a function you might use to transform your data to make 100% data
+    // This is an example of a function you might use to transform your data to make 100% data
     transformData(dataset) {
 
       console.log('input dataset: ' + dataset);
@@ -165,8 +146,12 @@ class Stats extends Component {
 
 
   render() {
+    const styles = this.getStyles();
+
     // const dataset = this.transformData(this.state.reasons);
-    const dataset = this.state.positiveReasons || [];
+    const positiveDataset = this.state.positiveReasons || [];
+    const neutralDataset = this.state.neutralReasons || [];
+    const sadDataset = this.state.sadReasons || [];
 
     return (
       <div>
@@ -205,42 +190,93 @@ class Stats extends Component {
           </VictoryChart>
 
           <h1>Positive Chart</h1>
-                    <VictoryChart
+          <VictoryChart
             theme={VictoryTheme.material}
-            domainPadding={10}
+            domainPadding={20}
+            width={700} height={400}
           >
           {
-            dataset.map((data, i) => {
-              return <VictoryBar data={data} key={i-1}/>;
+            positiveDataset.map((data, i) => {
+              return <VictoryBar data={data} key={i-1}
+              style={{ data: { fill: "#80cbc4", strokeWidth: 5 } }}
+              />;
             })
           }
-
+          <VictoryAxis
+            style={styles.custom} />
+            <VictoryAxis dependentAxis
+              orientation="left"
+              standalone={false}
+              style={styles.custom}
+            />
           </VictoryChart>
 
+
+          <h1>Neutral Chart</h1>
+          <VictoryChart
+            theme={VictoryTheme.material}
+            domainPadding={20}
+            width={700} height={400}
+          >
+          {
+            neutralDataset.map((data, i) => {
+              return <VictoryBar data={data} key={i-1}
+              style={{ data: { fill: "#80cbc4", strokeWidth: 5 } }}
+              />;
+            })
+          }
+          <VictoryAxis
+            style={styles.custom} />
+            <VictoryAxis dependentAxis
+              orientation="left"
+              standalone={false}
+              style={styles.custom}
+            />
+          </VictoryChart>
+
+          <h1>Sad Chart</h1>
+          <VictoryChart
+            theme={VictoryTheme.material}
+            domainPadding={20}
+            width={700} height={400}
+          >
+          {
+            sadDataset.map((data, i) => {
+              return <VictoryBar data={data} key={i-1}
+              style={{ data: { fill: "#80cbc4", strokeWidth: 5 } }}
+              />;
+            })
+          }
+          <VictoryAxis
+            style={styles.custom} />
+            <VictoryAxis dependentAxis
+              orientation="left"
+              standalone={false}
+              style={styles.custom}
+            />
+          </VictoryChart>
       </div>
     );
   }
+
+
+  getStyles() {
+      return {
+        // INDEPENDENT AXIS
+        custom: {
+          tickLabels: {
+            fill: "black",
+            fontFamily: "inherit",
+            fontSize: 8
+          }
+        },
+        lineWidth: {
+            data: { stroke: "#e95f46", strokeWidth: 2 }
+        }
+      };
+    }
+
 }
 
-// Working Backup
-// <VictoryChart
-//     height={400}
-//     width={800}
-//     domainPadding={{x: 30, y: 20}}
-// >
-//     <VictoryStack
-//       colorScale={["black", "blue", "tomato"]}
-//     >
-//       {dataset.map((data, i) => {
-//         return <VictoryBar data={data} key={i}/>;
-//       })}
-//     </VictoryStack>
-//     <VictoryAxis dependentAxis />
-//     <VictoryAxis
-//       tickFormat={this.state.positiveReasonsFieldName}
-//     />
-// </VictoryChart>
 
-
-// End of Working Backup
 export default Stats;

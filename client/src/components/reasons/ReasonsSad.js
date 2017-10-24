@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import UpdateReasons from '../../actions/updateReasons.js';
 import { Link } from 'react-router';
-// import ReasonStyle from './reasons.css'; note: imported via index.html // style folder
 import FontAwesome from 'react-fontawesome';
 
 class ReasonsSad extends Component {
@@ -20,6 +19,15 @@ class ReasonsSad extends Component {
     })
   }
 
+  handleOnClick = () => {
+    // some action...
+    // then redirect
+
+    UpdateReasons(this.state.reasons)
+    window.location.assign("/stats");
+    // this.setState({redirect: true});
+  }
+
   render() {
     return (
       <div className='buttonDiv {ReasonStyle}'>
@@ -35,9 +43,7 @@ class ReasonsSad extends Component {
         <br></br>
 
         <p id='submitP'>
-          <Link to="/stats">
-            <FontAwesome name="arrow-circle-right" id="arrow" onClick={() => {UpdateReasons(this.state.reasons)}}/>
-          </Link>
+            <FontAwesome name="arrow-circle-right" id="arrow" onClick={this.handleOnClick} />
         </p>
       </div>
     )
