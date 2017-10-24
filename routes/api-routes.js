@@ -149,20 +149,20 @@ router.get('/api/goals', function(req, res) {
    });
 });
 
- router.post('/api/goals', function (req, res, next) {
-    console.log(req.body)
-    var email = req.body.email;
-    // db.feeling.create is what inserts feeling into db
-    db.user.findOne({where: {email: email}}).then(function(data) {
-      db.goal.create({
-        goal: req.body.goal,
-        userId: data.id
-      }).then(function(dbgoals) {
-        res.json(dbgoals);
-        console.log(dbgoals + 'this is a post response')
-    });
-  });
-});
+router.post('/api/goals', function (req, res, next) {
+   console.log(req.body)
+   var email = req.body.email;
+   // db.feeling.create is what inserts feeling into db
+   db.user.findOne({where: {email: email}}).then(function(data) {
+     db.goal.create({
+       goal: req.body.goal,
+       userId: data.id
+     }).then(function(dbgoals) {
+       res.json(dbgoals);
+       console.log(dbgoals + 'this is a post response')
+   });
+  })
+})
 
   // router.put('/api/data', function(req, res) {
   //   console.log('PUT just happened');
@@ -182,7 +182,7 @@ router.get('/api/goals', function(req, res) {
       })
       console.log("Item has been deleted")
   });
-});
+})
 
 // Used to count occurences for [GET] - /api/reasons
 function count(arr) {
