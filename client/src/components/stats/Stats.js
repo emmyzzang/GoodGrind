@@ -1,21 +1,10 @@
 import React, { Component } from 'react';
-import { LineChart, Line } from 'recharts';
 import { render } from 'react-dom';
 import { VictoryChart, VictoryStack, VictoryTheme, VictoryBar, VictoryLabel, VictoryAxis, VictoryLine, VictoryScatter,
   VictoryVoronoiContainer, VictoryGroup, VictoryTooltip, VictoryZoomContainer,
   VictoryBrushContainer} from 'victory';
 import API from "../../actions/axiosApi.js";
 
-
-// const myDataset = [
-//   [
-//       {x: "New Opportunities", y: 1},
-//       {x: "meh", y: 2},
-//       {x: "Boss", y: 3},
-//       {x: "Test", y: 2},
-//       {x: "Incoming", y: 1}
-//   ]
-// ];
 
 
 class Stats extends Component {
@@ -52,16 +41,11 @@ class Stats extends Component {
               // Maps incoming data (res.data[i]) into the feelingArray
               // Data must be in the format - {a: new Date(2017-10-30T04:11:23.000Z), b: 1}
               // in order to work in victory charts
-              // TODO -
-              // need to construct a bar chart by building a data model (from online example)
-              // a: is respect to the X-Axis (Reason Fieldname)
-              // b: is respect to the Y-Axis (Count)
               temp['a'] = new Date(res.data[i].createdAt);
               temp['b'] = Number(res.data[i].feeling);
               feelingArray.push(temp);
             }
             console.log('feelingArray: ' + JSON.stringify(feelingArray));
-            // var JSONifyIt = JSON.stringify(feelingArray);
             var another = JSON.stringify(feelingArray);
 
             this.setState({ feelings: feelingArray });
@@ -70,25 +54,12 @@ class Stats extends Component {
         .catch(err => console.log(err));
    };
 
-  //  getReasons = (email) => {
-  //    API.getReasons(email)
-  //      .then( res =>
-  //      {
-  //        let dataArray = []
-   //
-  //        for(var i = 0; i < res.data.length; i++) {
-  //          dataArray.push(res.data[i].reasonList)
-  //        }
-   //
-  //        console.log('Reasons Data: ' + dataArray);
-   //
-  //        this.setState({ reasons: dataArray });
-  //        })
-  //      };
 
        getAllReasons = (email) => {
          console.log('getAllReasons execute');
-         // Get Happy Reasons
+        //====================================================================
+        //////////////////////// Get Positive Reasons /////////////////////
+        //====================================================================
          API.getReasons(email, 1)
            .then( res =>
            {
@@ -109,11 +80,13 @@ class Stats extends Component {
              this.setState({ positiveReasons: positiveReasons});
              this.setState({positiveReasonsFieldName: positiveReasonsFieldName});
              })
-           // Get Neutral Reasons
+       //====================================================================
+       ///////////////////////// Get Neutral Reasons /////////////////////
+       //====================================================================
            API.getReasons(email, 0)
              .then( neutralRes =>
              {
-               // Populate Positive Reasons
+               // Populate Neutral Reasons
                var neutralReasons = [];
                neutralReasons.push(neutralRes.data);
 
@@ -130,7 +103,9 @@ class Stats extends Component {
                this.setState({neutralReasons: neutralReasons});
                this.setState({neutralReasonsFieldName: neutralReasonsFieldName});
                })
-             // Get Sad Reasons
+       //====================================================================
+       ///////////////////////// Get Neutral Reasons //////////////////////
+       //====================================================================
              API.getReasons(email, -1)
                .then( sadRes =>
                {
@@ -153,7 +128,7 @@ class Stats extends Component {
                  })
            };
 
-       // This is an example of a function you might use to transform your data to make 100% data
+    // This is an example of a function you might use to transform your data to make 100% data
     transformData(dataset) {
 
       console.log('input dataset: ' + dataset);
@@ -303,25 +278,5 @@ class Stats extends Component {
 
 }
 
-// Working Backup
-// <VictoryChart
-//     height={400}
-//     width={800}
-//     domainPadding={{x: 30, y: 20}}
-// >
-//     <VictoryStack
-//       colorScale={["black", "blue", "tomato"]}
-//     >
-//       {dataset.map((data, i) => {
-//         return <VictoryBar data={data} key={i}/>;
-//       })}
-//     </VictoryStack>
-//     <VictoryAxis dependentAxis />
-//     <VictoryAxis
-//       tickFormat={this.state.positiveReasonsFieldName}
-//     />
-// </VictoryChart>
 
-
-// End of Working Backup
 export default Stats;
