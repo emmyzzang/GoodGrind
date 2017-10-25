@@ -26,31 +26,35 @@ class ReasonsSad extends React.Component {
       redirect: false,
       items: [
         {
-          text: "Great Culture",
+          text: "No Work Culture",
           id: 1
         },
         {
-          text: "Flexible Managers",
+          text: "Difficult Managers",
           id: 2
         },
         {
-          text: "Friendly Co-workers",
+          text: "Long Hours",
           id: 3
         },
         {
-          text: "Upbeat Work Environment",
+          text: "No Upward Mobility",
           id: 4
         },
         {
-          text: "Work is Appreciated",
+          text: "Work is Underappreciated or Rejected",
           id: 5
         },
         {
-          text: "Flexible Work Hours",
+          text: "Low Pay",
           id: 6
         },
         {
-          text: "New Opportunities",
+          text: "No Drive or Passion",
+          id: 7
+        },
+        {
+          text: "No Resources fo Additional Learning",
           id: 7
         },
       ]
@@ -58,8 +62,7 @@ class ReasonsSad extends React.Component {
   }
 
   handleOnClick = () => {
-    // some action...
-    // then redirect
+
     var reasons = this.state.reasons
     var items = this.state.items
     var finalOutput = []

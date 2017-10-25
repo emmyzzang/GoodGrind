@@ -26,31 +26,31 @@ class ReasonsNeutral extends React.Component {
       redirect: false,
       items: [
         {
-          text: "Great Culture",
+          text: "Low Energy Environment",
           id: 1
         },
         {
-          text: "Flexible Managers",
+          text: "High Turnover",
           id: 2
         },
         {
-          text: "Friendly Co-workers",
+          text: "Emotionally Removed Co-workers",
           id: 3
         },
         {
-          text: "Upbeat Work Environment",
+          text: "Work Goes Unnoticed",
           id: 4
         },
         {
-          text: "Work is Appreciated",
+          text: "Rigid Work Hours",
           id: 5
         },
         {
-          text: "Flexible Work Hours",
+          text: "Uninteresting Work",
           id: 6
         },
         {
-          text: "New Opportunities",
+          text: "Lack of Skill Building",
           id: 7
         },
       ]
@@ -58,8 +58,7 @@ class ReasonsNeutral extends React.Component {
   }
 
   handleOnClick = () => {
-    // some action...
-    // then redirect
+
     var reasons = this.state.reasons
     var items = this.state.items
     var finalOutput = []
