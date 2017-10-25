@@ -91,6 +91,9 @@ button {
   color: grey;
   font-family: raleway;
   text-align: center;
+  font-weight: bold;
+  width: 50%;
+  margin-left: 25%;
 }
 
 .buttonDiv {
@@ -131,6 +134,7 @@ ul {
 .navbar-nav {
   margin: 0;
   padding: 0;
+  padding-bottom: 3%;
   text-align: center;
 }
 
