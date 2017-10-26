@@ -94,6 +94,7 @@ button {
   font-weight: bold;
   width: 50%;
   margin-left: 25%;
+  box-shadow: 1px 1px 10px #888888;
 }
 
 .buttonDiv {
@@ -112,6 +113,12 @@ button {
 #arrow {
   font-size: 100px;
   color: #80cbc4;
+}
+
+#plus {
+  font-size: 100px;
+  color: #80cbc4;
+  padding-top: 25px;
 }
 
 #submitP{
@@ -287,7 +294,7 @@ body {
 
 #faceList {
   text-align: center;
-  font-size: 250px;
+  font-size: 275px;
   color: grey;
 }
 
@@ -336,6 +343,6 @@ body {
 }
 
 .active{
-  color: #fff;
-  background-color: #333;
+  color: #80cbc4;
+  background-color: #80cbc4;
 }

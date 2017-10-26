@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from "react-router";
 import API from "../actions/axiosApi.js";
-
+import FontAwesome from 'react-fontawesome';
 
 class Goals extends Component {
 
@@ -90,7 +90,10 @@ render() {
           />
       </div>
 
-      <h2 id ='goalsWord'onClick={() => this.handleSubmit()}> Add Goal </h2>
+      <p id='submitP'>
+          <FontAwesome name="plus-circle" id="plus" onClick={() => this.handleSubmit()} />
+      </p>
+
     </div>
       );
     }

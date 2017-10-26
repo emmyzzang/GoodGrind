@@ -12,7 +12,7 @@ class Item extends React.Component {
     render() {
       const { text, active } = this.props;
       return (
-        <div className={`header ${active && 'active'}`} onClick={this.handleClick}>{text}</div>
+        <div  id='reasonsId' className={`header ${active && 'active'}`} onClick={this.handleClick}>{text}</div>
       );
     }
   }
