@@ -1,5 +1,4 @@
-//navbar //
-
+/*///////////// BEGIN NAVBAR //////////*/
 ul #navbar {
   list-style-type: none;
   padding: 0;
@@ -18,21 +17,6 @@ li a #navbar {
   padding: 14px 16px;
   text-decoration: none;
 }
-
-/* mess with this later
-
-.fa-tachometer {
-font-size: 30px;
-}
-.fa-pencil {
-font-size: 30px;
-}
-.fa-rocket {
-font-size: 30px;
-}
-
-*/
-
 
 li a:hover {
   background-color: #80cbc4;
@@ -76,10 +60,10 @@ h2:active{
 hr {
   width: 50%;
 }
+/*/////////////END NAVBAR////////////*/
 
-////////////////////////////////////////
-/////////////// Reasons //////////////////
 
+/*//////////////// BEGIN REASONS ////////////////*/
 button {
   text-align: center;
   padding: 0px;
@@ -150,13 +134,12 @@ li a {
   text-decoration: none;
 }
 
+/*//////////////// END REASONS ////////////////*/
 
-///////////////////////////////////////////
-/////////// Signin //////////////////////
+/*//////////////// BEGIN SIGNIN ////////////////*/
 
 #signinDiv {
  text-align: center;
-
 }
 
 #signin {
@@ -167,13 +150,8 @@ li a {
   border-radius: 20px;
 }
 
-
-/*.form{
-  position: relative;
-}*/
-div.signinDiv {
-background-color: red;
-
+div#signinDiv {
+/*background-color: #e0f2f1;*/
 }
 
 fieldset.form-group {
@@ -188,13 +166,21 @@ fieldset.form-group {
   /*box-sizing: border-box;*/
 }
 
-input.text {
+/*////// BEGIN REMOVE CHROME WEBKIT DEFAULT YELLOWNESS AHHH ///////*/
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+/*////// END REMOVE CHROME WEBKIT DEFAULT YELLOWNESS AHHH ///////*/
+
+}
+input#password {
+  font-size: 100px;
   width: 80%;
   padding: 12px 20px;
   margin: 8px 0;
   border: 2px solid #e0f2f1;
   border-radius: 4px;
   display: inline-block;
+  background-color: red;
   /*box-sizing: border-box;*/
 }
 
@@ -274,12 +260,9 @@ body {
 .error {
   color: red;
 }
+/*//////////////// END SIGNIN ////////////////*/
 
-
-/////////////////////
-/*//////// Update /////////*/
-
-
+/*//////// BEGIN UPDATE FEATURE (FACES) /////////*/
 .faceHappy {
   padding-left: 50px;
 
@@ -290,9 +273,10 @@ body {
   font-size: 250px;
   color: grey;
 }
+/*//////// END UPDATE FEATURE (FACES) /////////*/
 
-/*Goals*/
 
+/*//////// BEGIN GOALS /////////*/
 #goalsWord {
   padding-top: 5%;
   text-align: center;
@@ -324,10 +308,9 @@ body {
   line-height: 150%;
   margin-right: 30%;
 }
+/*//////// END GOALS /////////*/
 
-
-/*////updateHappy///*/
-
+/*/////// BEGIN HAPPY //////*/
 .header{
   margin: 10px 0;
   padding: 15px;
@@ -339,3 +322,4 @@ body {
   color: #fff;
   background-color: #333;
 }
+/*/////// END HAPPY //////*/
