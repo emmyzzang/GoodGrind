@@ -31,7 +31,7 @@ export function signinUser({email, password}) {
         localStorage.setItem('email', email);
 
         // - redirect to the route '/feature'
-        browserHistory.push('/dashboard');
+        browserHistory.push('/update');
 
       })
       .catch((error) => {
@@ -53,7 +53,7 @@ export function signupUser({ email, password }) {
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('email', email);
 
-        browserHistory.push('/dashboard');
+        browserHistory.push('/update'); // redirect user to /update page
       })
       .catch( error => dispatch(authError(error.response.data.error)));
   }

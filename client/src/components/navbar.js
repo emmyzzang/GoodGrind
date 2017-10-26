@@ -10,8 +10,7 @@ class Navbar extends Component {
 
     if (this.props.authenticated) {
       // show a link to sign out
-      return [<li id = 'navbar'><Link to={"/dashboard"}><FontAwesome name='tachometer' />&nbsp;Dashboard</Link></li>,
-      <li id = 'navbar' key={1}><Link to={"/update"}><FontAwesome name='pencil' />&nbsp;Update</Link></li>,
+      return [<li id = 'navbar' key={1}><Link to={"/update"}><FontAwesome name='pencil' />&nbsp;Update</Link></li>,
       <li id = 'navbar' key={2}><Link to={"/goals"}><FontAwesome name='rocket' />&nbsp;Goals</Link></li>,
       <li id = 'navbar' key={3}><Link to={"/stats"}><FontAwesome name='line-chart' />&nbsp;Stats</Link></li>,
       <li id = 'navbar' key={4}><Link to={"/signout"}><FontAwesome name='sign-out' />&nbsp;Sign Out</Link></li>

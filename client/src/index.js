@@ -29,8 +29,6 @@ import Goals from './components/goals';
 // note: feature is only used as a "cookie-cutter" template
 import Feature from './components/feature';
 
-import Dashboard from './components/dashboard';
-
 import RequireAuth from './components/auth/require_auth';
 import Welcome from './components/welcome';
 
@@ -61,8 +59,6 @@ ReactDOM.render(
         <Route path="signup" component={Signup} />
         {/* Template Route used for cookie cutter */}
         <Route path="feature" component={RequireAuth(Feature)} />
-        {/* Dashboard Route */}
-        <Route path="dashboard" component={RequireAuth(Dashboard)} />
         {/* Reasons Routes */}
         <Route path="happy" component={RequireAuth(ReasonsHappy)} />
         <Route path="meh" component={RequireAuth(ReasonsNeutral)} />
