@@ -49,7 +49,7 @@ class Signin extends Component {
           </fieldset>
           <fieldset className="form-group">
             <label>Password:</label>
-            <Field id = 'passwordDiv'
+            <Field id='passwordDiv'
                 name="password"
                 component={renderInput}
                 type="password"
