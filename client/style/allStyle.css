@@ -62,87 +62,6 @@ hr {
 }
 /*/////////////END NAVBAR////////////*/
 
-
-/*//////////////// BEGIN REASONS ////////////////*/
-button {
-  text-align: center;
-  padding: 0px;
-  margin: 50px;
-  font-family: raleway;
-}
-
-#reasonsId {
-  color: grey;
-  font-family: raleway;
-  text-align: center;
-  font-weight: bold;
-  width: 50%;
-  margin-left: 25%;
-  box-shadow: 1px 1px 10px #888888;
-}
-
-.buttonDiv {
-  margin-top: 8%;
-}
-
-#buttonId {
- display: inline-block;
- margin: 30px;
- padding: 30px;
-}
-
-.submitDiv {
-  text-align: center;
-}
-#arrow {
-  font-size: 100px;
-  color: #80cbc4;
-}
-
-#plus {
-  font-size: 100px;
-  color: #80cbc4;
-  padding-top: 25px;
-}
-
-#submitP{
-  text-align: center;
-}
-
-h2 {
-  color: grey;
-  font-family: raleway;
-  text-align: center;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.navbar-nav {
-  margin: 0;
-  padding: 0;
-  padding-bottom: 3%;
-  text-align: center;
-}
-
-li {
-  display: inline;
-  list-style: none;
-}
-
-li a {
-  color: grey;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/*//////////////// END REASONS ////////////////*/
-
 /*//////////////// BEGIN SIGNIN ////////////////*/
 
 #signinDiv {
@@ -281,6 +200,86 @@ body {
   color: grey;
 }
 /*//////// END UPDATE FEATURE (FACES) /////////*/
+
+
+/*//////////////// BEGIN REASONS ////////////////*/
+button {
+  text-align: center;
+  padding: 0px;
+  margin: 50px;
+  font-family: raleway;
+}
+
+#reasonsId {
+  color: grey;
+  font-family: raleway;
+  text-align: center;
+  font-weight: bold;
+  width: 50%;
+  margin-left: 25%;
+  box-shadow: 1px 1px 10px #888888;
+}
+
+.buttonDiv {
+  margin-top: 8%;
+}
+
+#buttonId {
+ display: inline-block;
+ margin: 30px;
+ padding: 30px;
+}
+
+.submitDiv {
+  text-align: center;
+}
+#arrow {
+  font-size: 100px;
+  color: #80cbc4;
+}
+
+#plus {
+  font-size: 100px;
+  color: #80cbc4;
+  padding-top: 25px;
+}
+
+#submitP{
+  text-align: center;
+}
+
+h2 {
+  color: grey;
+  font-family: raleway;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.navbar-nav {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 3%;
+  text-align: center;
+}
+
+li {
+  display: inline;
+  list-style: none;
+}
+
+li a {
+  color: grey;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/*//////////////// END REASONS ////////////////*/
 
 
 /*//////// BEGIN GOALS /////////*/
