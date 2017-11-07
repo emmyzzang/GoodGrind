@@ -3,6 +3,10 @@ GoodGrind is a job wellness application built with React, Redux, Webpack, Yarn, 
 The full list of technologies are as follows:
 
 * axios
+* babel-core 
+* babel-loader
+* babel-preset-es2015 
+* babel-preset-react
 * bcrypt-nodejs
 * body-parser
 * concurrently
@@ -17,6 +21,8 @@ The full list of technologies are as follows:
 * react-router-dom
 * sequelize 
 * style-loader
+
+
 
 Good Grind is also built using token-based authentication.
 
