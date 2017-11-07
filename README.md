@@ -5,14 +5,18 @@ The full list of technologies are as follows:
 * axios
 * bcrypt-nodejs
 * body-parser
+* concurrently
 * cors
+* css-loader
 * jwt-simple
 * mysql2
+* nodemon
 * passport
 * passport-jwt 
 * passport-local
 * react-router-dom
 * sequelize 
+* style-loader
 
 Good Grind is also built using token-based authentication.
 
