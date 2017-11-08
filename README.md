@@ -21,6 +21,7 @@ The full list of technologies are as follows:
 * lodash
 * mysql2
 * mocha
+* node
 * nodemon
 * passport
 * passport-jwt 
@@ -40,6 +41,7 @@ The full list of technologies are as follows:
 * webpack 
 * webpack-dev-server 
 * victory
+* yarn
 
 
 Good Grind is also built using token-based authentication.
