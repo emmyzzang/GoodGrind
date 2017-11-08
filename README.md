@@ -9,11 +9,16 @@ The full list of technologies are as follows:
 * babel-preset-react
 * bcrypt-nodejs
 * body-parser
+* chai 
+* chai-jquery
 * concurrently
 * cors
 * css-loader
+* jquery
+* jsdom 
 * jwt-simple
 * mysql2
+* mocha
 * nodemon
 * passport
 * passport-jwt 
@@ -21,6 +26,8 @@ The full list of technologies are as follows:
 * react-router-dom
 * sequelize 
 * style-loader
+* webpack 
+* webpack-dev-server 
 
 
 
