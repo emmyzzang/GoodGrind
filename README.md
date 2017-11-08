@@ -32,7 +32,6 @@ The full list of technologies are as follows:
 * react-router
 * react-router-dom 
 * react-select
-* recharts
 * redux
 * redux-form 
 * redux-thunk
@@ -45,8 +44,9 @@ The full list of technologies are as follows:
 
 Good Grind is also built using token-based authentication.
 
+=============================================================================
 
-======================================================================
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
