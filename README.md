@@ -1,4 +1,55 @@
-test
+GoodGrind is a job wellness application built with React, Redux, Webpack, Yarn, Concurrently, Victory/D3 Data Visualization, Sequelize ORM, MySQL, and deployed using Amazon Web Services EC2.
+
+The full list of technologies are as follows:
+
+* amazon web services ec2 
+* axios
+* babel-core 
+* babel-loader
+* babel-preset-es2015 
+* babel-preset-react
+* bcrypt-nodejs
+* body-parser
+* chai 
+* chai-jquery
+* concurrently
+* cors
+* css-loader
+* jquery
+* jsdom 
+* jwt-simple
+* lodash
+* mysql2
+* mocha
+* node
+* nodemon
+* passport
+* passport-jwt 
+* passport-local
+* react
+* react-dom
+* react-fontawesome
+* react-redux
+* react-router
+* react-router-dom 
+* react-select
+* redux
+* redux-form 
+* redux-thunk
+* sequelize 
+* style-loader
+* webpack 
+* webpack-dev-server 
+* victory
+* yarn
+
+
+Good Grind is also built using token-based authentication.
+
+=============================================================================
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
