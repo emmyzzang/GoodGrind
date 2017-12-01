@@ -66,6 +66,9 @@ On submit of the 'reasons', user is routed to the Stats page where their feeling
 
 ![](images/gg4.png)
 
+![](images/gg5.png)
+
+
 =============================================================================
 
 
