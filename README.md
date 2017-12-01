@@ -78,6 +78,9 @@ The Neutral Chart displays the user's neutral reasons on the x axis, with reason
 The Sad Chart displays the user's sad reasons on the x axis, with reason occurrences on the y axis.
 ![](images/gg7.png)
 
+Once the user has analyzed their job wellness, the user can choose to visit the Goals page to create, read, and delete personal or professional goals.
+![](images/gg8.png)
+
 =============================================================================
 
 
