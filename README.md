@@ -75,8 +75,9 @@ The Neutral Chart displays the user's neutral reasons on the x axis, with reason
 ![](images/gg6.png)
 
 
-The Sad Chart displays the user's sad reasons on the x axis, with reason occurrrences on the y axis.
+The Sad Chart displays the user's sad reasons on the x axis, with reason occurrences on the y axis.
 ![](images/gg7.png)
+
 =============================================================================
 
 
