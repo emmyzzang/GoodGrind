@@ -46,7 +46,10 @@ The full list of technologies are as follows:
 
 Good Grind is also built using token-based authentication.
 
+
 ![](images/gg1.png)
+
+![](images/gg2.png)
 
 =============================================================================
 
