@@ -56,7 +56,7 @@ Once 'feelings' are selected, user is routed to input 'reasons' by clicking on e
 ![](images/gg3.png)
 
 
-![](images/gg3.png)
+![](images/gg4.png)
 
 =============================================================================
 
