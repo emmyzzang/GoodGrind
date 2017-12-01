@@ -56,6 +56,14 @@ Once 'feelings' are selected, user is routed to input 'reasons' by clicking on e
 ![](images/gg3.png)
 
 
+On submit of the 'reasons', user is routed to the Stats page where their feelings and reasons data are visualized on one graph as well as three charts. The line graph is a representation of user's feelings about work over time: 
+
+* x = time 
+* y = feelings  
+* happy = 1.0
+* meh = 0 
+* sad = -1.0 
+
 ![](images/gg4.png)
 
 =============================================================================
