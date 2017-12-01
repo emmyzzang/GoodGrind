@@ -66,9 +66,15 @@ On submit of the 'reasons', user is routed to the Stats page where their feeling
 
 ![](images/gg4.png)
 
+
+The Positive Chart displays the user's positive reasons on the x axis, with reason occurrrences on the y axis.
 ![](images/gg5.png)
 
+The Neutral Chart displays the user's neutral reasons on the x axis, with reason occurrrences on the y axis.
+![](images/gg6.png)
 
+
+![](images/gg7.png)
 =============================================================================
 
 
