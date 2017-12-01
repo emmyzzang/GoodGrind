@@ -55,6 +55,9 @@ Upon landing on the Update page by default, the user is prompted to update their
 Once 'feelings' are selected, user is routed to input 'reasons' by clicking on each reason that corresponds to feeling. User can select and submit the max number of reasons options displayed. 
 ![](images/gg3.png)
 
+
+![](images/gg3.png)
+
 =============================================================================
 
 
