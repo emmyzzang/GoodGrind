@@ -44,12 +44,12 @@ The full list of technologies is as follows:
 * yarn
 
 
-Good Grind is built using token-based authentication beginning with the sign-in page: 
+Good Grind is built using token-based authentication beginning with the sign-in page. 
 
 ![](images/gg1.png)
 
 
-Upon landing 
+Upon landing on the Update page by default, the user is prompted to update their feelings about work by clicking on one of the three faces: 'happy', 'meh', or 'sad'.  
 ![](images/gg2.png)
 
 =============================================================================
