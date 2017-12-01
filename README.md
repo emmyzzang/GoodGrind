@@ -1,6 +1,6 @@
 GoodGrind is a job wellness application built with React, Redux, Webpack, Yarn, Concurrently, Victory/D3 Data Visualization, Sequelize ORM, MySQL, and deployed using Amazon Web Services EC2.
 
-The full list of technologies are as follows:
+The full list of technologies is as follows:
 
 * amazon web services ec2 
 * axios
@@ -44,11 +44,12 @@ The full list of technologies are as follows:
 * yarn
 
 
-Good Grind is also built using token-based authentication.
-
+Good Grind is built using token-based authentication beginning with the sign-in page: 
 
 ![](images/gg1.png)
 
+
+Upon landing 
 ![](images/gg2.png)
 
 =============================================================================
