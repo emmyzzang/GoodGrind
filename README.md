@@ -52,6 +52,9 @@ Good Grind is built using token-based authentication beginning with the sign-in 
 Upon landing on the Update page by default, the user is prompted to update their feelings about work by clicking on one of the three faces: 'happy', 'meh', or 'sad'.  
 ![](images/gg2.png)
 
+
+![](images/gg3.png)
+
 =============================================================================
 
 
