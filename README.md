@@ -88,6 +88,8 @@ Once the user has analyzed their job wellness, the user can choose to visit the 
 User may select to sign out. 
 ![](images/gg9.png)
 
+Once the user signs out, the user session is no longer active. 
+
 =============================================================================
 
 
