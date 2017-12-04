@@ -46,7 +46,7 @@ GoodGrind is a job wellness application built with React, Redux, Webpack, Yarn, 
 
 <h2>Features</h2> 
 <h3>The following features are included.</h3> 
-Good Grind is built using token-based authentication beginning with the sign-in page. 
+Good Grind is built using token-based authentication beginning with the sign-in page. Upon successful user login, a JWT token is passed to the browser and the user is authenticated. If a user needs to sign up for the service, a new JWT token gets created with user specific data (i.e., the user's sign-up info gets salted, hashed, and stored in the database).  
 
 ![](images/gg1.png)
 
