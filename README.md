@@ -1,7 +1,7 @@
 GoodGrind is a job wellness application built with React, Redux, Webpack, Yarn, Concurrently, Victory/D3 Data Visualization, Sequelize ORM, MySQL, and deployed using Amazon Web Services EC2.
 
 For security, I have protected the following IP address on which the app is deployed: 13.58.10.121 
-Contact me to request access to the IP. 
+Feel free to contact me at: masteremmy.js@gmail.com to request access to the IP. 
 
 <h2>Technologies</h2>
 <h3>The full list of technologies is as follows:</h3>
