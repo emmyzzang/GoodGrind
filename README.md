@@ -50,11 +50,15 @@ The full list of technologies is as follows:
 
 <h2>Features</h2> 
 <h3>The following features are included.</h3> 
+
+<p>I. Token-Based Authentication </p>
 Good Grind is built using token-based authentication beginning with the sign-in page. Upon successful user login, a JWT token is passed to the browser and the user is authenticated. If a user needs to sign up for the service, a new JWT token gets created with user specific data (i.e., the user's sign-up info gets salted, hashed, and stored in the database).  
 
 ![](images/gg1.png)
 
-Upon landing on the Update page by default, the user is prompted to update their feelings about work by clicking on one of the three faces: 'happy', 'meh', or 'sad'.  
+<p>II. Feelings Update</p>
+Upon landing on the Update page by default, the user is prompted to update their feelings about work by clicking on one of the three faces: 'happy', 'meh', or 'sad'.
+
 ![](images/gg2.png)
 
 Once 'feelings' are selected, user is routed to input 'reasons' by clicking on each reason that corresponds to feeling. User can select and submit the max number of reasons options displayed. 
