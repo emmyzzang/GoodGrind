@@ -61,10 +61,12 @@ Upon landing on the Update page by default, the user is prompted to update their
 
 ![](images/gg2.png)
 
-Once 'feelings' are selected, user is routed to input 'reasons' by clicking on each reason that corresponds to feeling. User can select and submit the max number of reasons options displayed. 
+<p>III. Reasons Update</p>
+Once 'feelings' are selected, user is routed to input 'reasons' by clicking on each reason that corresponds to feeling. User can select and submit the max number of reasons options displayed.
+ 
 ![](images/gg3.png)
 
-
+<p>IV. User Stats</p>
 On submit of the 'reasons', user is routed to the Stats page where their feelings and reasons data are visualized on one graph as well as three charts. The line graph is a representation of user's feelings about work over time: 
 
 * x = time 
@@ -87,10 +89,8 @@ The Neutral Chart displays the user's neutral reasons on the x axis, with reason
 The Sad Chart displays the user's sad reasons on the x axis, with reason occurrences on the y axis.
 ![](images/gg7.png)
 
-
 Once the user has analyzed their job wellness, the user can choose to visit the Goals page to create, read, and delete personal or professional goals.
 ![](images/gg8.png)
-
 
 User may select to sign out. 
 ![](images/gg9.png)
