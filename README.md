@@ -1,6 +1,11 @@
 GoodGrind is a job wellness application built with React, Redux, Webpack, Yarn, Concurrently, Victory/D3 Data Visualization, Sequelize ORM, MySQL, and deployed using Amazon Web Services EC2.
 
-The full list of technologies are as follows:
+For security, I have protected the following IP address on which the app is deployed: 13.58.10.121 
+Feel free to contact me at: masteremmy.js@gmail.com to request access to the IP. 
+
+<h2>Technologies</h2>
+
+The full list of technologies is as follows:
 
 * amazon web services ec2 
 * axios
@@ -43,8 +48,58 @@ The full list of technologies are as follows:
 * victory
 * yarn
 
+<h2>Features</h2> 
+<h3>The following features are included.</h3> 
 
-Good Grind is also built using token-based authentication.
+<p>I. Token-Based Authentication </p>
+Good Grind is built using token-based authentication beginning with the sign-in page. Upon successful user login, a JWT token is passed to the browser and the user is authenticated. If a user needs to sign up for the service, a new JWT token gets created with user specific data (i.e., the user's sign-up info gets salted, hashed, and stored in the database).  
+
+![](images/gg1.png)
+
+<p>II. Feelings Update</p>
+Upon landing on the Update page by default, the user is prompted to update their feelings about work by clicking on one of the three faces: 'happy', 'meh', or 'sad'.
+
+![](images/gg2.png)
+
+<p>III. Reasons Update</p>
+Once 'feelings' are selected, user is routed to input 'reasons' by clicking on each reason that corresponds to feeling. User can select and submit the max number of reasons options displayed.
+ 
+![](images/gg3.png)
+
+<p>IV. User Stats</p>
+On submit of the 'reasons', user is routed to the Stats page where their feelings and reasons data are visualized on one graph as well as three charts. The line graph is a representation of user's feelings about work over time: 
+
+* x = time 
+* y = feelings  
+* happy = 1.0
+* meh = 0 
+* sad = -1.0 
+
+![](images/gg4.png)
+
+
+The Positive Chart displays the user's positive reasons on the x axis, with reason occurrrences on the y axis.
+![](images/gg5.png)
+
+
+The Neutral Chart displays the user's neutral reasons on the x axis, with reason occurrrences on the y axis.
+![](images/gg6.png)
+
+
+The Sad Chart displays the user's sad reasons on the x axis, with reason occurrences on the y axis.
+![](images/gg7.png)
+
+<p> V. Goals Page </p>
+Once the user has analyzed their job wellness, the user can choose to visit the Goals page to create, read, and delete personal or professional goals.
+
+![](images/gg8.png)
+
+<p> VI. Sign Out </p>
+User may select to sign out.
+ 
+![](images/gg9.png)
+
+Once the user signs out, the user session is no longer active. 
 
 =============================================================================
 
